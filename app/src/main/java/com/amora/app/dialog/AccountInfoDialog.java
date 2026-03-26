@@ -54,24 +54,22 @@ public class AccountInfoDialog extends Dialog implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
+        int id = view.getId();
 
-            case R.id.img_closeDialog:
-                dismiss();
-                break;
+        if (id == R.id.img_closeDialog) {
+            dismiss();
 
-            case R.id.btn_login:
-                // loginUser();
-                username = binding.etUsername.getText().toString();
-                password = binding.etPassword.getText().toString();
-                if (username.equals("")) {
-                    Toast.makeText(context, "Enter usernamne", Toast.LENGTH_SHORT).show();
-                } else if (password.equals("")) {
-                    Toast.makeText(context, "Enter password", Toast.LENGTH_SHORT).show();
-                } else {
-                    login(username, password);
-                }
-                break;
+        } else if (id == R.id.btn_login) {
+            username = binding.etUsername.getText().toString();
+            password = binding.etPassword.getText().toString();
+
+            if (username.isEmpty()) {
+                Toast.makeText(context, "Enter username", Toast.LENGTH_SHORT).show();
+            } else if (password.isEmpty()) {
+                Toast.makeText(context, "Enter password", Toast.LENGTH_SHORT).show();
+            } else {
+                login(username, password);
+            }
         }
     }
 

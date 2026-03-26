@@ -282,12 +282,10 @@ public class NearbyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.loadmore_retry:
-                case R.id.loadmore_errorlayout:
-                    showRetry(false, null);
-                    mCallback.retryPageLoad();
-                    break;
+            int id = view.getId();
+            if (id == R.id.loadmore_retry || id == R.id.loadmore_errorlayout) {
+                showRetry(false, null);
+                mCallback.retryPageLoad();
             }
         }
 

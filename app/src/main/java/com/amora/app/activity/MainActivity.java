@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
@@ -53,10 +54,11 @@ import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.InstallState;
 import com.google.android.play.core.install.InstallStateUpdatedListener;
-import com.google.android.play.core.install.model.AppUpdateType;
-import com.google.android.play.core.install.model.InstallStatus;
-import com.google.android.play.core.install.model.UpdateAvailability;
-import com.google.android.play.core.tasks.OnSuccessListener;
+
+// Task
+import com.google.android.gms.tasks.OnSuccessListener;
+
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -358,55 +360,43 @@ public class MainActivity extends AppCompatActivity implements ApiResponseInterf
 
 
     private void showAppUpdate() {
-        appUpdateManager = AppUpdateManagerFactory.create(this);
-        //FLEXIBLE update notification app update
-       /* appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
-            @Override
-            public void onSuccess(AppUpdateInfo result) {
-                if (result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                        && result.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
-                    try {
-                        appUpdateManager.startUpdateFlowForResult(result, AppUpdateType.FLEXIBLE, MainActivity.this,
-                                ME_APP_UPDATE);
-                    } catch (IntentSender.SendIntentException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-        });*/
-        appUpdateManager.registerListener(installStateUpdatedListener);
-        //IMMEDIATE update notification app update
-        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
-            @Override
-            public void onSuccess(AppUpdateInfo result) {
-                if (result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                        && result.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
-                    try {
-                        appUpdateManager.startUpdateFlowForResult(result, AppUpdateType.IMMEDIATE, MainActivity.this,
-                                ME_APP_UPDATE);
-                    } catch (IntentSender.SendIntentException e) {
-
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-        });
-        // hide for Immediate update our app in here
-        // appUpdateManager.registerListener(installStateUpdatedListener);*/
+//        appUpdateManager = AppUpdateManagerFactory.create(this);
+//
+//        appUpdateManager.registerListener(installStateUpdatedListener);
+//
+//        appUpdateManager.getAppUpdateInfo()
+//                .addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+//                    @Override
+//                    public void onSuccess(AppUpdateInfo appUpdateInfo) {
+//
+//                        if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+//                                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+//
+//                            try {
+//                                appUpdateManager.startUpdateFlowForResult(
+//                                        appUpdateInfo,
+//                                        AppUpdateType.IMMEDIATE,
+//                                        MainActivity.this,
+//                                        ME_APP_UPDATE
+//                                );
+//                            } catch (IntentSender.SendIntentException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }
+//                });
     }
 
 
-    private InstallStateUpdatedListener installStateUpdatedListener = new InstallStateUpdatedListener() {
-        @Override
-        public void onStateUpdate(@NonNull @NotNull InstallState state) {
-
-            if (state.installStatus() == InstallStatus.DOWNLOADED) {
-                showCompleteUpdate();
-            }
-        }
-    };
+//    private InstallStateUpdatedListener installStateUpdatedListener = new InstallStateUpdatedListener() {
+//        @Override
+//        public void onStateUpdate(@NonNull @NotNull InstallState state) {
+//
+//            if (state.installStatus() == InstallStatus.DOWNLOADED) {
+//                showCompleteUpdate();
+//            }
+//        }
+//    };
 
     @Override
     protected void onStop() {
@@ -523,6 +513,7 @@ public class MainActivity extends AppCompatActivity implements ApiResponseInterf
         unregisterReceiver(myReceiver);
     }
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     @Override
     protected void onResume() {
         super.onResume();
@@ -535,20 +526,20 @@ public class MainActivity extends AppCompatActivity implements ApiResponseInterf
         }*/
 
         // show immediate app update dialog
-        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
-            @Override
-            public void onSuccess(AppUpdateInfo result) {
-                if (result.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
-                    try {
-                        appUpdateManager.startUpdateFlowForResult(result, AppUpdateType.IMMEDIATE, MainActivity.this,
-                                ME_APP_UPDATE);
-                    } catch (IntentSender.SendIntentException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-        });
+//        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+//            @Override
+//            public void onSuccess(AppUpdateInfo result) {
+//                if (result.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
+//                    try {
+//                        appUpdateManager.startUpdateFlowForResult(result, AppUpdateType.IMMEDIATE, MainActivity.this,
+//                                ME_APP_UPDATE);
+//                    } catch (IntentSender.SendIntentException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//            }
+//        });
 
     }
 

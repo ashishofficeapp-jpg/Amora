@@ -39,6 +39,7 @@
     <color name="detail_list">#cc000000</color>
     <color name="localBackground">#ff827b92</color>
     <color name="viplist">#ffe5e5e5</color>
+    <color name="sky_blue">#6C7DD9</color>
 
     <color name="lv1">#F673B9</color>
     <color name="lv2">#FA67B6</color>

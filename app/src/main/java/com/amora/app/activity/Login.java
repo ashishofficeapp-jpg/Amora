@@ -1,5 +1,6 @@
 package com.amora.app.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,16 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.amora.app.R;
+import com.amora.app.databinding.ActivityLoginBinding;
 import com.amora.app.response.LoginResponse;
 import com.amora.app.retrofit.ApiManager;
 import com.amora.app.retrofit.ApiResponseInterface;
 import com.amora.app.utils.CommonMethod;
 import com.amora.app.utils.Constant;
+import com.amora.app.utils.HideStatus;
 import com.amora.app.utils.SessionManager;
 
-public class Login extends AppCompatActivity implements View.OnClickListener, ApiResponseInterface {
+public class Login extends AppCompatActivity implements ApiResponseInterface {
+    ActivityLoginBinding binding;
     TextView tv_sign, et_forgot_password;
     Button login_btn;
     EditText username, password;
@@ -32,19 +37,18 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Ap
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         //WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        binding.setClickListener(new EventHandler(this));
 
-        session = new  SessionManager(this);
+        session = new SessionManager(this);
         tv_sign = findViewById(R.id.tv_sign);
         et_forgot_password = findViewById(R.id.et_forgot_password);
         login_btn = findViewById(R.id.login_btn);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
-        tv_sign.setOnClickListener(this);
-        et_forgot_password.setOnClickListener(this);
-        login_btn.setOnClickListener(this);
 
         //Prevent auto open edittext
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -63,22 +67,33 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Ap
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public class EventHandler {
+        Context mContext;
 
-            case R.id.login_btn:
-                if (validateAllDetails()) {
-                    if (CommonMethod.isOnline(this)) {
-                        apiManager.login(username.getText().toString(), password.getText().toString());
-                    } else {
-                        Toast.makeText(this, "Internet not connected !", Toast.LENGTH_SHORT).show();
-                    }
+        public EventHandler(Context mContext) {
+            this.mContext = mContext;
+        }
+
+        public void onLoginClicked() {
+            if (validateAllDetails()) {
+                if (CommonMethod.isOnline(mContext)) {
+                    apiManager.login(username.getText().toString(), password.getText().toString());
+                } else {
+                    Toast.makeText(mContext, "Internet not connected !", Toast.LENGTH_SHORT).show();
                 }
-                break;
+            }
+        }
+
+        public void onRegisterClicked() {
 
         }
+
+        public void onForgotPasswordClicked() {
+
+        }
+
     }
+
 
     private boolean validateAllDetails() {
         boolean checkFields = true;
@@ -130,7 +145,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Ap
             new SessionManager(this).saveGuestStatus(Integer.parseInt(rsp.getAlready_registered()));
             session.setUserEmail(username.getText().toString());
             session.setUserPassword(password.getText().toString());
-           // new SessionManager(this).setUserLocation("India");
+            // new SessionManager(this).setUserLocation("India");
             Intent intent = new Intent(this, MainActivity.class);
             finishAffinity();
             startActivity(intent);

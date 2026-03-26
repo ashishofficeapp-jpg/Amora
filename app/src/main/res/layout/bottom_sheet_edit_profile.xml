@@ -102,7 +102,6 @@
             android:layout_margin="1dp"
             android:background="@null"
             android:fontFamily="@font/lato_medium"
-            android:onClick="cancel"
             android:text="Cancel"
             android:gravity="center"
             android:textAlignment="center"

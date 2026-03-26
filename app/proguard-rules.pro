@@ -104,6 +104,8 @@
 -keep class * implements android.os.Parcelable {
  public static final android.os.Parcelable$Creator *;
 }
+# Keep BouncyCastle classes (prevent R8 from removing)
+-keep class org.bouncycastle.** { *; }
 
 -keepclassmembers class **.R$* {
  public static <fields>;
@@ -119,5 +121,10 @@
 -dontwarn java.nio.file.Path
 -dontwarn java.nio.file.OpenOption
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+-dontwarn javax.naming.**
+-dontwarn org.bouncycastle.**
+# Ignore javax.naming classes that Android doesn't have
+-dontwarn javax.naming.**
+-dontwarn javax.naming.directory.**
 
 

@@ -302,7 +302,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="@string/album"
+                        android:text="album"
                         android:textColor="#dd000000"
                         android:textSize="16sp"
                         android:textStyle="bold" />

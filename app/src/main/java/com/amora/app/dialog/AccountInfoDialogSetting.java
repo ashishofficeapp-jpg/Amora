@@ -47,7 +47,7 @@ public class AccountInfoDialogSetting extends Dialog implements View.OnClickList
             } else {
                 binding.etPassword.setText("Password: " + password);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -58,14 +58,11 @@ public class AccountInfoDialogSetting extends Dialog implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.img_closeDialog:
-                dismiss();
-                break;
-
-            case R.id.btn_ok:
-                dismiss();
-                break;
+        int id = view.getId();
+        if (id == R.id.img_closeDialog) {
+            dismiss();
+        } else if (id == R.id.btn_ok) {
+            dismiss();
         }
     }
 

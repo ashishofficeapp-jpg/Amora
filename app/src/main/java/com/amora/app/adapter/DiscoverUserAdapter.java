@@ -25,6 +25,7 @@ import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -39,6 +40,7 @@ import com.amora.app.fragment.DiscoverFragment;
 import com.amora.app.response.UserListResponse;
 import com.amora.app.utils.PaginationAdapterCallback;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -262,7 +264,7 @@ public class DiscoverUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
-        context.registerReceiver(myVideoReceiver, new IntentFilter("FBR-USER-VIDEO"));
+        ContextCompat.registerReceiver(context, myVideoReceiver, new IntentFilter("FBR-USER-VIDEO"), ContextCompat.RECEIVER_NOT_EXPORTED);
 
         //play video
         MaterialCardView cv_video;
@@ -299,7 +301,11 @@ public class DiscoverUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                                 retriever.setDataSource(profileVideo.getVideoUrl(), new HashMap<String, String>());
                                 String time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
                                 long timeInMillisec = Long.parseLong(time);
-                                retriever.release();
+                                try {
+                                    retriever.release();
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
                                 duration = convertMillieToHMmSs(timeInMillisec); //use this duration
                                 Log.e("getVideo", "VideoDuration  " + duration);
                             }
@@ -539,12 +545,10 @@ public class DiscoverUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.loadmore_retry:
-                case R.id.loadmore_errorlayout:
-                    showRetry(false, null);
-                    mCallback.retryPageLoad();
-                    break;
+            int id = view.getId();
+            if (id == R.id.loadmore_retry || id == R.id.loadmore_errorlayout) {
+                showRetry(false, null);
+                mCallback.retryPageLoad();
             }
         }
 

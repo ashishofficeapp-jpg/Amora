@@ -94,7 +94,6 @@
             android:layout_weight="1"
             android:background="@drawable/rounded_corner_stroke"
             android:fontFamily="@font/lato_medium"
-            android:onClick="cancel"
             android:text="Cancel"
             android:textColor="@color/black"
             android:textAlignment="center" />

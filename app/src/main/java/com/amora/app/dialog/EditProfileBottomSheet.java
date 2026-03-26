@@ -62,23 +62,20 @@ public class EditProfileBottomSheet extends Dialog implements ApiResponseInterfa
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.check:
-                new PictureView(getContext(), pic, selectedPosition);
-                dismiss();
-                return;
+        int id = view.getId();
 
-            case R.id.delete:
-                apiManager.deleteProfileImage(String.valueOf(pic.get(selectedPosition).getId()));
-                return;
+        if (id == R.id.check) {
+            new PictureView(getContext(), pic, selectedPosition);
+            dismiss();
 
-            case R.id.set_profile_pic:
-                apiManager.setProfilePicture(String.valueOf(pic.get(selectedPosition).getId()));
-                return;
+        } else if (id == R.id.delete) {
+            apiManager.deleteProfileImage(String.valueOf(pic.get(selectedPosition).getId()));
 
-            case R.id.cancel:
-                dismiss();
-                return;
+        } else if (id == R.id.set_profile_pic) {
+            apiManager.setProfilePicture(String.valueOf(pic.get(selectedPosition).getId()));
+
+        } else if (id == R.id.cancel) {
+            dismiss();
         }
     }
 

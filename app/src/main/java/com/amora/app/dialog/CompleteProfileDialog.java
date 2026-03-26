@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.amora.app.R;
 import com.amora.app.activity.ImagePickerActivity;
@@ -68,7 +69,7 @@ public class CompleteProfileDialog extends Dialog implements ApiResponseInterfac
         show();
         init();
         child = new Dialog(context);
-        context.registerReceiver(myImageReceiver, new IntentFilter("FBR-USER-IMAGE"));
+        ContextCompat.registerReceiver(context, myImageReceiver, new IntentFilter("FBR-USER-IMAGE"), ContextCompat.RECEIVER_NOT_EXPORTED);
     }
 
 
@@ -137,38 +138,35 @@ public class CompleteProfileDialog extends Dialog implements ApiResponseInterfac
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.linearCamera:
-                showChildDialog();
-                return;
-            case R.id.btn_complete:
-                newGuestName = tv_user_name.getText().toString();
-                if (TextUtils.isEmpty(newGuestName)) {
-                    Toast.makeText(context, "Enter name", Toast.LENGTH_SHORT).show();
+        int id = view.getId();
+
+        if (id == R.id.linearCamera) {
+            showChildDialog();
+
+        } else if (id == R.id.btn_complete) {
+            newGuestName = tv_user_name.getText().toString();
+            if (TextUtils.isEmpty(newGuestName)) {
+                Toast.makeText(context, "Enter name", Toast.LENGTH_SHORT).show();
+            } else {
+                if (picToUpload != null) {
+                    RequestBody conversationIdPic = RequestBody.create(MediaType.parse("text/plain"), newGuestName);
+                    apiManager.upDateGuestProfile(conversationIdPic, picToUpload);
                 } else {
-                    if (picToUpload != null) {
-                        RequestBody conversationIdPic = RequestBody.create(MediaType.parse("text/plain"), newGuestName);
-                        apiManager.upDateGuestProfile(conversationIdPic, picToUpload);
-                    } else {
-                        RequestBody conversationNameId = RequestBody.create(MediaType.parse("text/plain"), newGuestName);
-                        apiManager.upDateGuestProfile(conversationNameId, null);
-                    }
-                    new SessionManager(context).saveGuestStatus(1);
-                    //context.onStart();
-                    dismiss();
+                    RequestBody conversationNameId = RequestBody.create(MediaType.parse("text/plain"), newGuestName);
+                    apiManager.upDateGuestProfile(conversationNameId, null);
                 }
-                return;
-            case R.id.img_back_complete_profile:
-                Intent intent = new Intent(context, SocialLogin.class);
-                context.startActivity(intent);
-                context.finish();
-            case R.id.tv_skip:
-                /*  Intent intent = new Intent(context, SocialLogin.class);
-                context.startActivity(intent);
-                context.finish();*/
                 new SessionManager(context).saveGuestStatus(1);
                 dismiss();
-                return;
+            }
+
+        } else if (id == R.id.img_back_complete_profile) {
+            Intent intent = new Intent(context, SocialLogin.class);
+            context.startActivity(intent);
+            context.finish();
+
+        } else if (id == R.id.tv_skip) {
+            new SessionManager(context).saveGuestStatus(1);
+            dismiss();
         }
     }
 

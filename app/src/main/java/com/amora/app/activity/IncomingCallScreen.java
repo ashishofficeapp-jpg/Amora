@@ -80,36 +80,37 @@ public class IncomingCallScreen extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.accept_call:
-                Intent intent = null;
-                if (callType.equals("video")) {
-                    intent = new Intent(this, VideoChatActivity.class);
-                    intent.putExtra("TOKEN", token);
-                    intent.putExtra("UNIQUE_ID", unique_id);
-                    intent.putExtra("converID", convId);
-                    intent.putExtra("ID", userId);
-                    intent.putExtra("receiver_name", callerName);
-                    intent.putExtra("receiver_image", callerImage);
-                } else if (callType.equals("audio")) {
-                    intent = new Intent(this, VoiceChatViewActivity.class);
-                    intent.putExtra("TOKEN", token);
-                    intent.putExtra("UNIQUE_ID", unique_id);
-                    intent.putExtra("ID", userId);
-                    intent.putExtra("userpoints", userpoints);
-                    intent.putExtra("receiveraudiocallRate", receiveraudiocallRate);
-                    intent.putExtra("receiverid", receiverid);
+        int id = view.getId();
 
-                }
+        if (id == R.id.accept_call) {
+            Intent intent = null;
+            if ("video".equals(callType)) {
+                intent = new Intent(this, VideoChatActivity.class);
+                intent.putExtra("TOKEN", token);
+                intent.putExtra("UNIQUE_ID", unique_id);
+                intent.putExtra("converID", convId);
+                intent.putExtra("ID", userId);
+                intent.putExtra("receiver_name", callerName);
+                intent.putExtra("receiver_image", callerImage);
+            } else if ("audio".equals(callType)) {
+                intent = new Intent(this, VoiceChatViewActivity.class);
+                intent.putExtra("TOKEN", token);
+                intent.putExtra("UNIQUE_ID", unique_id);
+                intent.putExtra("ID", userId);
+                intent.putExtra("userpoints", userpoints);
+                intent.putExtra("receiveraudiocallRate", receiveraudiocallRate);
+                intent.putExtra("receiverid", receiverid);
+            }
+
+            if (intent != null) {
                 startActivity(intent);
-                stopRingtone();
-                finish();
-                return;
+            }
 
-            case R.id.decline_call:
-                stopRingtone();
-                return;
+            stopRingtone();
+            finish();
 
+        } else if (id == R.id.decline_call) {
+            stopRingtone();
         }
     }
 

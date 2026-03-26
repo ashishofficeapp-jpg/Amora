@@ -19,8 +19,10 @@ public class CommonMethod {
         Snackbar snack = Snackbar.make(view, s, Snackbar.LENGTH_LONG);
         View sbview = snack.getView();
         sbview.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
-        TextView textView = sbview.findViewById(R.id.snackbar_text);
-        textView.setTextColor(context.getResources().getColor(R.color.white));
+
+        TextView textView = sbview.findViewById(com.google.android.material.R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(context, R.color.white));
+
         snack.show();
     }
 

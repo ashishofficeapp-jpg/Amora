@@ -1,176 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/splash_bg_solidgradiant"
-    android:orientation="vertical"
-    android:weightSum="6"
-    tools:context="com.amora.app.activity.SocialLogin">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
+        <variable
+            name="clickListener"
+            type="com.amora.app.activity.SocialLogin.EventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_bg_solidgradiant">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.18"/>
+
+        <!-- Logo -->
         <ImageView
             android:id="@+id/seprator"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logomeetlive" />
-    </LinearLayout>
+            android:src="@drawable/logomeetlive"
+            android:contentDescription="@string/app_name"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            app:layout_constraintTop_toTopOf="@id/guideline30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:flow_horizontalBias="0.4"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
-
-        <LinearLayout
-            android:id="@+id/layout_one"
-            android:layout_width="match_parent"
+        <!-- Divider with text -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/divider_layout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal">
-
+            app:layout_constraintTop_toBottomOf="@id/seprator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp">
 
             <View
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="0.2dp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:background="@color/white" />
+                android:id="@+id/divider_left"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/login_with_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="8dp"/>
 
             <TextView
+                android:id="@+id/login_with_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_medium"
                 android:text="@string/login_with"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp">
-
-            </TextView>
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/lato_medium"
+                app:layout_constraintStart_toEndOf="@id/divider_left"
+                app:layout_constraintEnd_toStartOf="@+id/divider_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <View
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="0.2dp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:background="@color/white" />
+                android:id="@+id/divider_right"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toEndOf="@id/login_with_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+        <!-- Social buttons -->
         <LinearLayout
-            android:id="@+id/layout_two"
-            android:layout_width="match_parent"
+            android:id="@+id/social_buttons"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout_one"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/divider_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_10sdp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <!-- Facebook -->
+            <ImageView
+                android:id="@+id/fb_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="25dp"
+                android:src="@drawable/facebook"
+                android:onClick="@{() -> clickListener.onFacebookClick()}" />
 
-                <com.facebook.login.widget.LoginButton
-                    android:id="@+id/facebook_login_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:id="@+id/fb_btn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="25dp"
-                    android:onClick="onClick"
-                    android:src="@drawable/facebook" />
-            </LinearLayout>
-
+            <!-- Google -->
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_25sdp"
-                android:background="@color/white"
-                android:elevation="0dp"
                 app:cardCornerRadius="24dp"
-                app:cardUseCompatPadding="false">
-
+                android:elevation="0dp"
+                android:layout_marginStart="@dimen/_25sdp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/gmail_btn"
                     android:layout_width="48dp"
-                    android:onClick="onClick"
                     android:layout_height="48dp"
                     android:padding="@dimen/_7sdp"
-                    android:src="@drawable/ic_google" />
+                    android:src="@drawable/ic_google"
+                    android:onClick="@{() -> clickListener.onGoogleClick()}" />
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/layout_one"
+        <!-- Guest login -->
+        <RelativeLayout
+            android:id="@+id/guest_login_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg"
             android:gravity="center"
-            android:orientation="vertical">
+            android:minWidth="@dimen/_140sdp"
+            android:minHeight="@dimen/DP30"
+            app:layout_constraintTop_toBottomOf="@id/social_buttons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:onClick="@{() -> clickListener.onGuestLogin()}">
 
-            <RelativeLayout
-                android:id="@+id/guest_login_layout"
+            <TextView
+                android:id="@+id/guest_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:background="@drawable/layout_bg"
+                android:text="Quick Login"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/lato_bold"
+                android:textStyle="bold"
                 android:gravity="center"
-                android:minWidth="@dimen/_140sdp"
-                android:minHeight="@dimen/DP30">
+                android:padding="@dimen/_5sdp"/>
+        </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/guest_login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_bold"
-                    android:gravity="center"
-                    android:padding="@dimen/_5sdp"
-                    android:text="Quick Login"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
+        <!-- User login -->
+        <RelativeLayout
+            android:id="@+id/login_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg"
+            android:gravity="center"
+            android:minWidth="@dimen/_140sdp"
+            android:minHeight="@dimen/DP30"
+            app:layout_constraintTop_toBottomOf="@id/guest_login_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:onClick="@{() -> clickListener.onUserLogin()}">
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/login_layout"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:background="@drawable/layout_bg"
-                android:gravity="center"
-                android:minWidth="@dimen/_140sdp"
-                android:minHeight="@dimen/DP30">
+                android:text="@string/login_user_id"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/lato_bold"
+                android:padding="@dimen/_5sdp"/>
+        </RelativeLayout>
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_bold"
-                    android:padding="@dimen/_5sdp"
-                    android:text="@string/login_user_id"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"/>
-
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

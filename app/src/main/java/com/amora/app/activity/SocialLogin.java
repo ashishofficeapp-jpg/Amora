@@ -2,6 +2,7 @@ package com.amora.app.activity;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -21,20 +22,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amora.app.databinding.ActivitySocialLoginBinding;
+import com.amora.app.utils.HideStatus;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -65,33 +66,39 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.List;
 
-public class SocialLogin extends AppCompatActivity implements ApiResponseInterface, View.OnClickListener {
+public class SocialLogin extends AppCompatActivity implements ApiResponseInterface {
 
-    private RelativeLayout login_layout;
-    TextView guest_login;
+    ActivitySocialLoginBinding binding;
     ConnectivityManager cm;
     NetworkInfo activeNetwork;
     ErrorDialog errorDialog;
     boolean doubleBackToExitPressedOnce = false;
-    /*---- Facebook variables ----*/
-    LoginButton loginButton;
+
     ImageView fb_btn, gmail_btn;
     CallbackManager callbackManager;
     public static final int REQ_CODE = 9001;
     public static final int FACEBOOK_REQ_CODE = 64206;
 
-    /* ----- Google+ Login Variables ---- */
     GoogleSignInClient googleApiClient;
     ApiManager apiManager;
     public static String currentVersion;
+    SessionManager sessionManager;
+    int REQUEST_CODE_CHECK_SETTINGS = 2021;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_social_login);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_social_login);
+        binding.setClickListener(new EventHandler(this));
 
+        // Initialize UI buttons
+        fb_btn = binding.fbBtn;
+        gmail_btn = binding.gmailBtn;
+        callbackManager = CallbackManager.Factory.create();
+
+        // Get App Version
         try {
             currentVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             Log.e("version", "appVersion" + currentVersion);
@@ -100,45 +107,16 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
         }
         new GetAppVersion(this).execute();
 
-        // Session Manager
+        // API Manager
         apiManager = new ApiManager(this, this);
-        login_layout = findViewById(R.id.login_layout);
-        guest_login = findViewById(R.id.guest_login);
-        loginButton = (LoginButton) findViewById(R.id.facebook_login_button);
-        fb_btn = findViewById(R.id.fb_btn);
-        gmail_btn = findViewById(R.id.gmail_btn);
-        guest_login.setOnClickListener(this);
-        login_layout.setOnClickListener(this);
-
         errorDialog = new ErrorDialog(this, "Please check your internet connection");
-        /*AccessToken accessToken = AccessToken.getCurrentAccessToken();
-        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();*/
-        callbackManager = CallbackManager.Factory.create();
-        loginButton.setReadPermissions("public_profile email");
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                getFbInfo();
-            }
 
-            @Override
-            public void onCancel() {
-                Toast.makeText(SocialLogin.this, "cancel...", Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Toast.makeText(SocialLogin.this, "" + error, Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        /*-------------- Google+ ----------------*/
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        // Build a GoogleSignInClient with the options specified by gso.
+        // Google Sign-In setup
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail().build();
         googleApiClient = GoogleSignIn.getClient(this, googleSignInOptions);
 
+        // Location permission
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             autoCountrySelect();
@@ -147,25 +125,16 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
         }
     }
 
-
     private void getPermission() {
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
-                        try {
-                            if (report.areAllPermissionsGranted()) {
-                            }
-
-                            if (report.isAnyPermissionPermanentlyDenied()) {
-                            }
-
-                            if (report.getGrantedPermissionResponses().get(0).getPermissionName().equals("android.permission.ACCESS_FINE_LOCATION")) {
-                                // autoCountrySelect();
-                                enableLocationSettings();
-                            }
-                        } catch (Exception e) {
+                        if (report.areAllPermissionsGranted()) {
+                            enableLocationSettings();
+                        } else if (report.isAnyPermissionPermanentlyDenied()) {
+                            Toast.makeText(SocialLogin.this, "Permission denied permanently", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -178,42 +147,29 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
                 .check();
     }
 
-    SessionManager sessionManager;
-    int REQUEST_CODE_CHECK_SETTINGS = 2021;
-
     private void autoCountrySelect() {
-        Log.e("LocationDetection", "m here");
         sessionManager = new SessionManager(this);
         LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Geocoder geocoder = new Geocoder(getApplicationContext());
+
         for (String provider : lm.getAllProviders()) {
             @SuppressWarnings("ResourceType")
             Location location = lm.getLastKnownLocation(provider);
             if (location != null) {
                 try {
                     List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    if (addresses != null && addresses.size() > 0) {
-                        //c_name = addresses.get(0).getCountryName();
+                    if (addresses != null && !addresses.isEmpty()) {
                         String city_name = addresses.get(0).getLocality();
-                        /*Log.e("countryname", addresses.get(0).getCountryName());
-                        Log.e("cityname", city_name);*/
                         Log.e("cityname", city_name);
                         sessionManager.setUserLocation(addresses.get(0).getCountryName());
                         sessionManager.setUserAddress(city_name);
-                       /* Log.e("cityname1", addresses.get(0).getAddressLine(0).toLowerCase());
-                        Log.e("cityname2", addresses.get(0).getAdminArea());
-                        Log.e("cityname3", addresses.get(0).getSubLocality());*/
                         break;
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } else {
-                //autoCountrySelect();
-                //enableLocationSettings();
             }
         }
-
     }
 
     public void enableLocationSettings() {
@@ -228,22 +184,13 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
         LocationServices
                 .getSettingsClient(this)
                 .checkLocationSettings(builder.build())
-                .addOnSuccessListener(this, (LocationSettingsResponse response) -> {
-                    // startUpdatingLocation(...);
-                    autoCountrySelect();
-
-                })
+                .addOnSuccessListener(this, (LocationSettingsResponse response) -> autoCountrySelect())
                 .addOnFailureListener(this, ex -> {
-                    Log.e("LocationService", "Failure");
                     if (ex instanceof ResolvableApiException) {
-                        // Location settings are NOT satisfied,  but this can be fixed  by showing the user a dialog.
                         try {
-                            // Show the dialog by calling startResolutionForResult(),  and check the result in onActivityResult().
                             ResolvableApiException resolvable = (ResolvableApiException) ex;
                             resolvable.startResolutionForResult(SocialLogin.this, REQUEST_CODE_CHECK_SETTINGS);
-                        } catch (IntentSender.SendIntentException sendEx) {
-                            // Ignore the error.
-                        }
+                        } catch (IntentSender.SendIntentException ignored) {}
                     }
                 });
     }
@@ -251,83 +198,54 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
     @Override
     protected void onStart() {
         super.onStart();
-        // Check for existing Google Sign In account.
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if (account != null) {
-            googleApiClient.signOut()
-                    .addOnCompleteListener(this, task -> {
-                    });
+            googleApiClient.signOut();
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (REQUEST_CODE_CHECK_SETTINGS == requestCode) {
-            if (Activity.RESULT_OK == resultCode) {
-                //user clicked OK, you can startUpdatingLocation(...);
-                autoCountrySelect();
-                //enableLocationSettings();
-            } else {
-                //user clicked cancel: informUserImportanceOfLocationAndPresentRequestAgain();
-            }
+        if (REQUEST_CODE_CHECK_SETTINGS == requestCode && resultCode == Activity.RESULT_OK) {
+            autoCountrySelect();
         }
+
         if (requestCode == REQ_CODE) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
 
-        // Pass the activity result to the FacebookCallback.
-        if (requestCode == FACEBOOK_REQ_CODE) {
-            callbackManager.onActivityResult(requestCode, resultCode, data);
-        }
-        // Log.e("","fb"+data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
             if (account != null) {
-
-                apiManager.login_FbGoogle(account.getDisplayName(), "google", account.getId(),account.getEmail());
-
+                apiManager.login_FbGoogle(account.getDisplayName(), "google", account.getId(), account.getEmail());
                 new SessionManager(this).setUserFacebookName(account.getDisplayName());
-                Log.e("emeil",account.getEmail());
+                Log.e("email", account.getEmail());
             }
-
         } catch (ApiException e) {
-            //The ApiException status code indicates the detailed failure reason.
-            //Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.e("", "signInResult:failed code=" + e.getStatusCode());
+            Log.e("GoogleSignIn", "signInResult:failed code=" + e.getStatusCode());
         }
     }
 
-    /*------- Get Facebook Data ------------*/
+    /* Facebook Graph API */
     private void getFbInfo() {
         GraphRequest request = GraphRequest.newMeRequest(
                 AccessToken.getCurrentAccessToken(),
                 (object, response) -> {
                     try {
-                        Log.e("LOG_TAG", "fb json object: " + object);
-                        Log.e("LOG_TAG", "fb graph response: " + response);
                         String id = object.getString("id");
                         String first_name = object.getString("first_name");
                         String last_name = object.getString("last_name");
-                        // 8/06/21 set user name in sheared prefrences
                         new SessionManager(this).setUserFacebookName(first_name + " " + last_name);
-                        //Log.e("Userfacebooknamesocialp", first_name);
-                        //String last_name = object.getString("last_name");
-                        //String gender = object.getString("gender");
-                        //String birthday = object.getString("birthday");
-                        //String image_url = "http://graph.facebook.com/" + id + "/picture?type=large";
 
-                        String email = "";
-                        if (object.has("email")) {
-                            email = object.getString("email");
-                        }
-                        Log.e("emailId",email);
-                        apiManager.login_FbGoogle(first_name, "facebook", id,email);
+                        String email = object.has("email") ? object.getString("email") : "";
+                        Log.e("emailId", email);
+                        apiManager.login_FbGoogle(first_name, "facebook", id, email);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -344,45 +262,66 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
         activeNetwork = cm.getActiveNetworkInfo();
     }
 
-    @Override
-    public void onClick(View view) {
+    /* Event Handler for DataBinding */
+    public class EventHandler {
+        Context mContext;
 
-        switch (view.getId()) {
+        public EventHandler(Context mContext) {
+            this.mContext = mContext;
+        }
 
-            case R.id.guest_login:
-                @SuppressLint("HardwareIds")
-                String deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-                 //String deviceId = "984036547822";
-                //Log.e("Device_id", deviceId);
-                apiManager.guestRegister("guest", deviceId);
-               /* startActivity(new Intent(SocialLogin.this, LocationSelection.class));
-                finish();*/
-                break;
-            case R.id.login_layout:
-                //show dialog for user login
-                Intent intent = new Intent(this, Login.class);
-                startActivity(intent);
-                break;
+        public void onGuestLogin() {
+            @SuppressLint("HardwareIds")
+            //String deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+            String deviceId = "984036547822";
+            //Log.e("Device_id", deviceId);
+            apiManager.guestRegister("guest", deviceId);
+        }
 
-            case R.id.fb_btn:
-                checkInternetConnection();
-                if (activeNetwork != null) {
-                    loginButton.performClick();
-                } else {
-                    errorDialog.show();
-                }
-                return;
+        public void onUserLogin() {
+            mContext.startActivity(new Intent(mContext, Login.class));
+        }
 
-            case R.id.gmail_btn:
-                checkInternetConnection();
-                if (activeNetwork != null) {
-                    Intent signInIntent = googleApiClient.getSignInIntent();
-                    startActivityForResult(signInIntent, REQ_CODE);
-                } else {
-                    errorDialog.show();
-                }
-                return;
+        public void onFacebookClick() {
+            checkInternetConnection();
+            if (activeNetwork != null) {
+                LoginManager.getInstance().logInWithReadPermissions(
+                        (Activity) mContext,
+                        java.util.Arrays.asList("public_profile", "email")
+                );
 
+                LoginManager.getInstance().registerCallback(
+                        callbackManager,
+                        new FacebookCallback<LoginResult>() {
+                            @Override
+                            public void onSuccess(LoginResult loginResult) {
+                                getFbInfo();
+                            }
+
+                            @Override
+                            public void onCancel() {
+                                Toast.makeText(mContext, "Facebook login cancelled", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onError(FacebookException error) {
+                                Toast.makeText(mContext, "Facebook login error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                );
+            } else {
+                errorDialog.show();
+            }
+        }
+
+        public void onGoogleClick() {
+            checkInternetConnection();
+            if (activeNetwork != null) {
+                Intent signInIntent = googleApiClient.getSignInIntent();
+                ((Activity) mContext).startActivityForResult(signInIntent, REQ_CODE);
+            } else {
+                errorDialog.show();
+            }
         }
     }
 
@@ -395,67 +334,25 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
     public void isSuccess(Object response, int ServiceCode) {
         String c_name = new SessionManager(getApplicationContext()).getUserLocation();
 
-        if (ServiceCode == Constant.REGISTER) {
+        if (ServiceCode == Constant.REGISTER || ServiceCode == Constant.LOGIN) {
             LoginResponse rsp = (LoginResponse) response;
-            //new SessionManager(this).saveGuestStatus(Integer.parseInt(rsp.getAlready_registered()));
-            if (c_name.equals("null")) {
-                Log.e("userLocationLog", c_name);
-                if (rsp.getResult().getAllow_in_app_purchase() == 0) {
-                    new SessionManager(this).createLoginSession(rsp);
-                    //new SessionManager(this).setUserLocation("India");
-                    //Log.e("counteryINACT", new SessionManager(this).getUserLocation());
-
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                    finishAffinity();
-                } else {
-                    new SessionManager(this).createLoginSession(rsp);
-                    startActivity(new Intent(SocialLogin.this, LocationSelection.class));
-                }
-              /*new SessionManager(this).createLoginSession(rsp);
-                startActivity(new Intent(SocialLogin.this, LocationSelection.class));*/
+            new SessionManager(this).createLoginSession(rsp);
+            if (c_name.equals("null") && rsp.getResult().getAllow_in_app_purchase() != 0) {
+                startActivity(new Intent(this, LocationSelection.class));
             } else {
-                new SessionManager(this).createLoginSession(rsp);
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, MainActivity.class));
                 finishAffinity();
             }
         }
+
         if (ServiceCode == Constant.GUEST_REGISTER) {
             LoginResponse rsp = (LoginResponse) response;
-            /*if (rsp.getResult() != null && rsp.getResult().getUsername() != null && rsp.getResult().getDemo_password() != null) {
-                new SessionManager(this).saveGuestPassword(rsp.getResult().getDemo_password());
-                apiManager.login(rsp.getResult().getUsername(), rsp.getResult().getDemo_password());
-            }*/
             if (rsp.getResult() != null && rsp.getResult().getUsername() != null && rsp.getResult().getDemo_password() != null) {
-                //new SessionManager(this).saveGuestStatus(Integer.parseInt(rsp.getAlready_registered()));
-                new SessionManager(this).saveGuestStatus((rsp.getResult().getGuest_status()));
+                new SessionManager(this).saveGuestStatus(rsp.getResult().getGuest_status());
                 new SessionManager(this).saveGuestPassword(rsp.getResult().getDemo_password());
                 apiManager.login(rsp.getResult().getUsername(), rsp.getResult().getDemo_password());
             }
         }
-
-        if (ServiceCode == Constant.LOGIN) {
-            LoginResponse rsp = (LoginResponse) response;
-            if (c_name.equals("null")) {
-                if (rsp.getResult().getAllow_in_app_purchase() == 0) {
-                    new SessionManager(this).createLoginSession(rsp);
-                    //Log.e("counteryINACT", new SessionManager(this).getUserLocation());
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                    finishAffinity();
-                } else {
-                    new SessionManager(this).createLoginSession(rsp);
-                    startActivity(new Intent(SocialLogin.this, MainActivity.class));
-                }
-            } else {
-                new SessionManager(this).createLoginSession(rsp);
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                //finishAffinity();
-            }
-        }
-
     }
 
     @Override
@@ -466,12 +363,6 @@ public class SocialLogin extends AppCompatActivity implements ApiResponseInterfa
         }
         this.doubleBackToExitPressedOnce = true;
         Toast.makeText(this, "You Want Close App", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce = false;
-            }
-        }, 2000);
-
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
     }
 }

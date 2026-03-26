@@ -144,20 +144,22 @@ public class SearchUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         //setNewAnimation(hld.itemView,position);
 
     }
+
     private int lastPosition = -1;
+
     private void setAnimation(View viewToAnimate, int position) {
         // If the bound view wasn't previously displayed on screen, it's animated
         //if (position > lastPosition) {
-            ScaleAnimation anim = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f,
-                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-            anim.setDuration(new Random().nextInt(501));
-            viewToAnimate.startAnimation(anim);
-           // lastPosition = position;
-       // }
+        ScaleAnimation anim = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setDuration(new Random().nextInt(501));
+        viewToAnimate.startAnimation(anim);
+        // lastPosition = position;
+        // }
     }
 
-    private void setNewAnimation(View view, int position){
-       // If the bound view wasn't previously displayed on screen, it's animated of
+    private void setNewAnimation(View view, int position) {
+        // If the bound view wasn't previously displayed on screen, it's animated of
         if (position > lastPosition) {
             //Animation slidIn = AnimationUtils.loadAnimation(context, R.anim.r_anim);
             Animation slidIn = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
@@ -166,7 +168,6 @@ public class SearchUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
 
     }
-
 
 
     @Override
@@ -229,13 +230,10 @@ public class SearchUserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.loadmore_retry:
-                case R.id.loadmore_errorlayout:
-
-                    showRetry(false, null);
-                    mCallback.retryPageLoad();
-                    break;
+            int id = view.getId();
+            if (id == R.id.loadmore_retry || id == R.id.loadmore_errorlayout) {
+                showRetry(false, null);
+                mCallback.retryPageLoad();
             }
         }
 

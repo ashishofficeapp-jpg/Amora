@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.amora.app.dialog.InsufficientCoins;
-import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 import com.amora.app.R;
 import com.amora.app.adapter.UserLevelUpAdapter;
 import com.amora.app.response.GetUserLevelResponse.GetLevelResponce;
@@ -27,7 +27,7 @@ import com.amora.app.utils.Constant;
 import java.util.ArrayList;
 
 public class LevelUpActivity extends AppCompatActivity implements ApiResponseInterface {
-    private RoundedHorizontalProgressBar level_user_progressBar;
+    private ProgressBar level_user_progressBar;
     private TextView tv_level_percentage,availableCoins;
     private Button btn_top_up;
     TextView tv_user_level, level_tv_current_level, level_tv_current_exp;
@@ -68,9 +68,9 @@ public class LevelUpActivity extends AppCompatActivity implements ApiResponseInt
         apiManager.getUserLevelHistory();
         apiManager.getWalletAmount();
 
-        level_user_progressBar.animateProgress(3000, 0, 10);
-        level_user_progressBar.setProgressColors(ResourcesCompat.getColor(getResources(),
-                R.color.white, null), ResourcesCompat.getColor(getResources(), R.color.pinkNew, null));
+        //level_user_progressBar.animateProgress(3000, 0, 10);
+        //level_user_progressBar.setProgressColors(ResourcesCompat.getColor(getResources(),
+               // R.color.white, null), ResourcesCompat.getColor(getResources(), R.color.pinkNew, null));
         tv_level_percentage.setText("10%");
 
         level_iv_back_btn.setOnClickListener(new View.OnClickListener() {

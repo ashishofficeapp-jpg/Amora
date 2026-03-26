@@ -11,12 +11,10 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 import com.amora.app.retrofit.ApiManager;
 import com.amora.app.utils.SessionManager;
 
-import io.agora.rtm.RtmClient;
 
 public class AppLifecycle extends Application implements LifecycleObserver {
     private static Context appContext;
     public static boolean wasInBackground;
-    public static RtmClient mRtmClient;
 
     @Override
     public void onCreate() {

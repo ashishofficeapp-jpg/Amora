@@ -188,53 +188,42 @@ public class GiftDailogNew extends DialogFragment implements ApiResponseInterfac
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_1:
-                tv_1.setBackgroundResource(R.drawable.gift_1_bg);
-                tv_11.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_33.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_77.setBackgroundColor(getResources().getColor(R.color.transparent));
-                btValue = tv_1.getText().toString();
-                notifyDataChanged();
-                break;
-            case R.id.tv_11:
-                tv_11.setBackgroundColor(getResources().getColor(R.color.greyPink));
-                tv_1.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_33.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_77.setBackgroundColor(getResources().getColor(R.color.transparent));
-                btValue = tv_11.getText().toString();
-                notifyDataChanged();
-                break;
-            case R.id.tv_33:
-                tv_33.setBackgroundColor(getResources().getColor(R.color.greyPink));
-                tv_1.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_11.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_77.setBackgroundColor(getResources().getColor(R.color.transparent));
-                btValue = tv_33.getText().toString();
-                notifyDataChanged();
-                break;
-            case R.id.tv_77:
-                tv_77.setBackgroundColor(getResources().getColor(R.color.greyPink));
-                tv_1.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_11.setBackgroundColor(getResources().getColor(R.color.transparent));
-                tv_33.setBackgroundColor(getResources().getColor(R.color.transparent));
-                btValue = tv_77.getText().toString();
-                notifyDataChanged();
-                break;
-            case R.id.tv_send:
-                tv_send.setBackgroundResource(R.drawable.gift_send_button);
-                giftRecyclerviewClickListenerGiftPager(GiftFragment.positions);
-                break;
-            case R.id.purchase_coins:
-                new InsufficientCoins(getActivity(), 2, Integer.parseInt(availableCoins.getText().toString()));
-                break;
-            default:
-                // code block
-                break;
+        int id = view.getId();
 
-
+        if (id == R.id.tv_1) {
+            tv_1.setBackgroundResource(R.drawable.gift_1_bg);
+            tv_11.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_33.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_77.setBackgroundColor(getResources().getColor(R.color.transparent));
+            btValue = tv_1.getText().toString();
+            notifyDataChanged();
+        } else if (id == R.id.tv_11) {
+            tv_11.setBackgroundColor(getResources().getColor(R.color.greyPink));
+            tv_1.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_33.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_77.setBackgroundColor(getResources().getColor(R.color.transparent));
+            btValue = tv_11.getText().toString();
+            notifyDataChanged();
+        } else if (id == R.id.tv_33) {
+            tv_33.setBackgroundColor(getResources().getColor(R.color.greyPink));
+            tv_1.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_11.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_77.setBackgroundColor(getResources().getColor(R.color.transparent));
+            btValue = tv_33.getText().toString();
+            notifyDataChanged();
+        } else if (id == R.id.tv_77) {
+            tv_77.setBackgroundColor(getResources().getColor(R.color.greyPink));
+            tv_1.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_11.setBackgroundColor(getResources().getColor(R.color.transparent));
+            tv_33.setBackgroundColor(getResources().getColor(R.color.transparent));
+            btValue = tv_77.getText().toString();
+            notifyDataChanged();
+        } else if (id == R.id.tv_send) {
+            tv_send.setBackgroundResource(R.drawable.gift_send_button);
+            giftRecyclerviewClickListenerGiftPager(GiftFragment.positions);
+        } else if (id == R.id.purchase_coins) {
+            new InsufficientCoins(getActivity(), 2, Integer.parseInt(availableCoins.getText().toString()));
         }
-
     }
     public void notifyDataChanged() {
         Log.e("reach", "working adapter:==");

@@ -192,7 +192,6 @@
         android:layout_marginEnd="@dimen/DP10"
         android:layout_toStartOf="@id/rl_close"
         android:background="@drawable/circular"
-        android:onClick="startPictureInPictureFeature"
         android:visibility="gone">
 
         <ImageView
