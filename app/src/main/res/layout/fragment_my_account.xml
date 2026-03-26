@@ -7,7 +7,7 @@
 
         <variable
             name="clickListener"
-            type="com.meetlive.app.fragment.MyAccountFragment.EventHandler" />
+            type="com.amora.app.fragment.MyAccountFragment.EventHandler" />
 
     </data>
 
@@ -15,14 +15,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.meetlive.app.fragment.MyAccountFragment">
+        tools:context="com.amora.app.fragment.MyAccountFragment">
 
         <RelativeLayout
             android:id="@+id/header_layout"
             android:layout_width="match_parent"
             android:layout_height="260dp">
 
-            <com.meetlive.app.shapeDesign.DiagonalView
+            <com.amora.app.shapeDesign.DiagonalView
                 android:id="@+id/diagonalLayout"
                 app:shape_diagonal_angle="10"
                 app:shape_diagonal_position="bottom"
@@ -33,7 +33,7 @@
                 android:layout_alignParentTop="true"
                 android:paddingBottom="16dp">
 
-                <com.meetlive.app.shapeDesign.TrangleBurnsView
+                <com.amora.app.shapeDesign.TrangleBurnsView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -104,7 +104,7 @@
                 </LinearLayout>
 
 
-            </com.meetlive.app.shapeDesign.DiagonalView>
+            </com.amora.app.shapeDesign.DiagonalView>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/userImage"

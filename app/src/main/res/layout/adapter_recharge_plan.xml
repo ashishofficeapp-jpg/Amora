@@ -80,7 +80,7 @@
             android:textSize="12sp" />
     </RelativeLayout>
 
-    <com.meetlive.app.utils.BoldTextView
+    <com.amora.app.utils.BoldTextView
         android:id="@+id/wallet_list_offer"
         android:layout_width="25dp"
         android:layout_height="25dp"

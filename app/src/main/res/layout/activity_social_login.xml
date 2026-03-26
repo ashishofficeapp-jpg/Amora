@@ -7,7 +7,7 @@
     android:background="@drawable/splash_bg_solidgradiant"
     android:orientation="vertical"
     android:weightSum="6"
-    tools:context="com.meetlive.app.activity.SocialLogin">
+    tools:context="com.amora.app.activity.SocialLogin">
 
     <LinearLayout
         android:layout_width="match_parent"

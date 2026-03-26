@@ -5,7 +5,7 @@
 
         <variable
             name="clickListener"
-            type="com.meetlive.app.activity.SelectPaymentMethod" />
+            type="com.amora.app.activity.SelectPaymentMethod" />
     </data>
 
     <RelativeLayout
@@ -378,7 +378,7 @@
                         android:textColor="@color/grey200"
                         android:textSize="10sp" />
 
-                    <com.meetlive.app.utils.CustomButton
+                    <com.amora.app.utils.CustomButton
                         android:id="@+id/button_pay"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"

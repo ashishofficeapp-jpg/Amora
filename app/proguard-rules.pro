@@ -59,10 +59,10 @@
  native <methods>;
 }
 
--keep public class * extends com.meetlive.app.retrofit.ApiInterface
--keep class com.meetlive.app.response** { *; }
--keep interface com.meetlive.app.retrofit.ApiResponseInterface** { *; }
--keep class com.meetlive.app.retrofit*{*;}
+-keep public class * extends com.amora.app.retrofit.ApiInterface
+-keep class com.amora.app.response** { *; }
+-keep interface com.amora.app.retrofit.ApiResponseInterface** { *; }
+-keep class com.amora.app.retrofit*{*;}
 
 # Keep Retrofit
 -keep class retrofit.** { *; }
@@ -72,7 +72,7 @@
 -keepclassmembers class * {
     @retrofit.** *;
 }
--keep class * extends com.meetlive.app.retrofit.ApiResponseInterface{
+-keep class * extends com.amora.app.retrofit.ApiResponseInterface{
 @retrofit.** *;
 }
 

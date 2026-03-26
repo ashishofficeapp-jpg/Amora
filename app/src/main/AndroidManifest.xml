@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.meetlive.app">
+    package="com.amora.app">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -28,7 +28,7 @@
         android:required="false" />
 
     <application
-        android:name=".AppLifecycle"
+        android:name="com.amora.app.AppLifecycle"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_logo"
@@ -40,59 +40,59 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
-        <activity android:name=".activity.WinnerActivity"
+        <activity android:name="com.amora.app.activity.WinnerActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".activity.SearchUserActivity"
+            android:name="com.amora.app.activity.SearchUserActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.ImagePickerActivity" />
+        <activity android:name="com.amora.app.activity.ImagePickerActivity" />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name="com.amora.app.activity.SettingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ViewProfile"
+            android:name="com.amora.app.activity.ViewProfile"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.BroadcastScreen" />
         <activity
-            android:name=".activity.OnCamFriendsActivity"
+            android:name="com.amora.app.activity.OnCamFriendsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ChatActivity"
+            android:name="com.amora.app.activity.ChatActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.InboxDetails"
+            android:name="com.amora.app.activity.InboxDetails"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.RateDialogActivity"
+            android:name="com.amora.app.activity.RateDialogActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.IncomingCallScreen"
+            android:name="com.amora.app.activity.IncomingCallScreen"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.VoiceChatViewActivity"
+            android:name="com.amora.app.activity.VoiceChatViewActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.LevelUpActivity"
+            android:name="com.amora.app.activity.LevelUpActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SelectPaymentMethod"
+            android:name="com.amora.app.activity.SelectPaymentMethod"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
-            android:name=".activity.VideoChatActivity"
+            android:name="com.amora.app.activity.VideoChatActivity"
             android:allowTaskReparenting="true"
             android:autoRemoveFromRecents="true"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
@@ -103,23 +103,23 @@
             android:theme="@style/AppTheme.BroadcastScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.PurchaseCoins"
+            android:name="com.amora.app.activity.PurchaseCoins"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" /> <!-- Facebook Implementations -->
         <activity
-            android:name=".activity.PrivacyPolicy"
+            android:name="com.amora.app.activity.PrivacyPolicy"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MaleWallet"
+            android:name="com.amora.app.activity.MaleWallet"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.EditProfile"
+            android:name="com.amora.app.activity.EditProfile"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.Login"
+            android:name="com.amora.app.activity.Login"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <uses-library
@@ -127,17 +127,17 @@
             android:required="false" />
 
         <activity
-            android:name=".activity.SocialLogin"
+            android:name="com.amora.app.activity.SocialLogin"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.amora.app.activity.MainActivity"
             android:configChanges="uiMode"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
-        <activity android:name=".activity.Splash">
+        <activity android:name="com.amora.app.activity.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -146,7 +146,7 @@
         </activity>
 
         <service
-            android:name=".push_notification.MyFirebaseMessagingService"
+            android:name="com.amora.app.push_notification.MyFirebaseMessagingService"
             android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

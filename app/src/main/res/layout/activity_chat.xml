@@ -470,7 +470,7 @@
         android:background="@drawable/rounded_relativepink"
         android:visibility="gone">
 
-        <com.meetlive.app.helper.VisualizerView
+        <com.amora.app.helper.VisualizerView
             android:id="@+id/visualizer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

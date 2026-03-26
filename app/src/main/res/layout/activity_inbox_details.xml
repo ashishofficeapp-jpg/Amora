@@ -4,7 +4,7 @@
 
         <variable
             name="clickListener"
-            type="com.meetlive.app.activity.InboxDetails.EventHandler" />
+            type="com.amora.app.activity.InboxDetails.EventHandler" />
     </data>
 
     <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"

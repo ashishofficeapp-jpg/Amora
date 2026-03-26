@@ -6,7 +6,7 @@
 
         <variable
             name="clickListener"
-            type="com.meetlive.app.activity.RateDialogActivity.EventHandler" />
+            type="com.amora.app.activity.RateDialogActivity.EventHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"

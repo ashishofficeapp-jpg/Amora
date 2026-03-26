@@ -10,7 +10,7 @@
 
         <variable
             name="clickListener"
-            type="com.meetlive.app.dialog.ReportDialog.EventHandler" />
+            type="com.amora.app.dialog.ReportDialog.EventHandler" />
 
     </data>
 

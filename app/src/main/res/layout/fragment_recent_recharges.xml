@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.meetlive.app.fragment.RecentRecharges">
+        tools:context="com.amora.app.fragment.RecentRecharges">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/search_loader"

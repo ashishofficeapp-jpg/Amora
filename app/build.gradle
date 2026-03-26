@@ -4,10 +4,10 @@ plugins {
 
 android {
     compileSdkVersion 29
-    namespace "com.meetlive.app"
+    namespace "com.amora.app"
 
     defaultConfig {
-        applicationId "com.meetlive.app"
+        applicationId "com.amora.app"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 25

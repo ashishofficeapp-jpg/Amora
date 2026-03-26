@@ -4,7 +4,7 @@
 
         <variable
             name="clickListener"
-            type="com.meetlive.app.dialog.AccountInfoDialogSetting.EventHandler" />
+            type="com.amora.app.dialog.AccountInfoDialogSetting.EventHandler" />
 
     </data>
     <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"

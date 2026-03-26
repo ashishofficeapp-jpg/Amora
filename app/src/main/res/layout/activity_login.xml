@@ -61,7 +61,7 @@
                             android:layout_marginRight="8dp"
                             android:background="@color/greyPink" />
 
-                        <com.meetlive.app.utils.CustomEdittext
+                        <com.amora.app.utils.CustomEdittext
                             android:id="@+id/username"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                             android:layout_marginRight="8dp"
                             android:background="@color/greyPink" />
 
-                        <com.meetlive.app.utils.CustomEdittext
+                        <com.amora.app.utils.CustomEdittext
                             android:id="@+id/password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.meetlive.app.utils.CustomButton
+                    <com.amora.app.utils.CustomButton
                         android:id="@+id/login_btn"
                         style="@style/CustomButton"
                         android:layout_width="match_parent"
@@ -131,7 +131,7 @@
                     android:layout_marginTop="32dp"
                     android:orientation="horizontal">
 
-                    <com.meetlive.app.utils.BoldTextView
+                    <com.amora.app.utils.BoldTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
@@ -140,7 +140,7 @@
                         android:textSize="@dimen/textSizeLarge"
                         android:visibility="gone" />
 
-                    <com.meetlive.app.utils.BoldTextView
+                    <com.amora.app.utils.BoldTextView
                         android:id="@+id/tv_sign"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
 
                 </LinearLayout>
 
-                <com.meetlive.app.utils.BoldTextView
+                <com.amora.app.utils.BoldTextView
                     android:id="@+id/et_forgot_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -7,7 +7,7 @@
 
         <variable
             name="clickListener"
-            type="com.meetlive.app.activity.SettingActivity.EventHandler" />
+            type="com.amora.app.activity.SettingActivity.EventHandler" />
 
     </data>
 

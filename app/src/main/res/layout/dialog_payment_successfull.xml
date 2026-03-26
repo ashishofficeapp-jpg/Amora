@@ -54,7 +54,7 @@
             android:textAlignment="center"
             android:textSize="14sp" />
 
-        <com.meetlive.app.utils.CustomButton
+        <com.amora.app.utils.CustomButton
             android:id="@+id/done_btn"
             style="@style/CustomButton"
             android:layout_width="match_parent"
