@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <!--<variable
+            name="clickListener"
+            type="com.zeeplive.app.dialog.ComplaintDialog.EventHandler" />-->
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/background_gradient" />
+
+        <ImageView
+            android:id="@+id/caller_pic"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_above="@+id/caller_name"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="24dp" />
+
+        <TextView
+            android:id="@+id/caller_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/lato_bold"
+            android:text="Waiting to Connect..."
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/caller_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/caller_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/DP50"
+            android:fontFamily="@font/lato_bold"
+            android:text="Connecting..."
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/img_svgloader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/caller_msg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/DP20"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

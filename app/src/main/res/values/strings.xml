@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">Meet Live</string>
+    <string name="agora_app_id">a001570469104215bc17ec43b986b26c</string>
+    <!--<string name="agora_access_token">006bd11c4dd81f14db0ab2d520b132f9e3cIAAr2VVwPPkIyKr/SqmUJQGDz/UeQ7bBm3c8bbingfuyP6DfQtYAAAAAEAAI1Snxq8RpXgEAAQCqxGle</string>
+-->
+    <!--<string name="facebook_app_id">371683957720162</string>-->
+    <!--<string name="facebook_app_id">345954266373042</string>
+    <string name="agora_app_id">a001570469104215bc17ec43b986b26c</string>
+    <string name="Client_ID">720604246001-vds9seon29bbgv1kj9seh26ri9clrvtj.apps.googleusercontent.com</string>
+    <string name="Client_SECRET">Fn3mkwYpm9HyWvlP8Dv_2qiV</string>-->
+    <!--<string name="agora_access_token">006bd11c4dd81f14db0ab2d520b132f9e3cIAAr2VVwPPkIyKr/SqmUJQGDz/UeQ7bBm3c8bbingfuyP6DfQtYAAAAAEAAI1Snxq8RpXgEAAQCqxGle</string>
+-->
+
+    <!--<string name="facebook_app_id">371683957720162</string>-->
+    <!--<string name="fbid">100054602035117</string>-->
+    <string name="facebook_app_id">527156878596329</string>
+
+    <string name="title_activity_main">MainActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tap_to_reload">Tap to Reload</string>
+    <array name="state_list">
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Mumbai</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>New Delhi</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura Agartala</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>Gairsain</item>
+        <item>West Bengal</item>
+        <item>Andaman and Nicobar Islands</item>
+        <item>Chandigarh</item>
+        <item>Dadra and Nagar Haveli</item>
+        <item>Jammu and Kashmir</item>
+        <item>Ladakh</item>
+        <item>Lakshadweep</item>
+        <item>Puducherry</item>
+    </array>
+
+    <string name="login_with">Login With</string>
+    <string name="login_user_id">LOGIN USER ID</string>
+    <string name="login_in_with_user_id">User Account Info</string>
+
+    <string name="gifts_received">GIFTS RECEIVED</string>
+    <string name="score">SCORE:</string>
+    <string name="chat">CHAT</string>
+    <string name="video_chat">VIDEO CALL</string>
+
+    <!--    onCam fragment strings-->
+    <string name="start">Start</string>
+    <string name="face_to_face">Face To Face</string>
+    <string name="you_re">YOU’RE</string>
+    <string name="riend">RIEND</string>
+    <string name="f">F</string>
+    <string name="s">S!</string>
+    <string name="say_hello">SAY HELLO</string>
+    <string name="video_call">VIDEO CALL</string>
+    <string name="connecting_camera">Connecting \n Camera…</string>
+    <string name="you_and_puja_cutipie_liked_each_other">You and (girl name) liked each other.</string>
+    <string name="finding_people_who_are_video_chatting_in_real_time_for_you">Finding people who are video chatting in real-time for you…</string>
+    <string name="instructions">You’ll have 10 seconds to decide whether you like each other or not. Light up the heart if you find love at first sight!</string>
+    <string name="next">Next</string>
+    <string name="button_ok">OK</string>
+
+    <item name="item_click_support" type="id" />
+
+    <string-array name="searchWordsArray">
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+        <item>four</item>
+        <item>five</item>
+        <item>six</item>
+        <item>seven</item>
+        <item>eight</item>
+        <item>nine</item>
+        <item>ten</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>mobile</item>
+        <item>number</item>
+        <item>phone</item>
+        <item>nu</item>
+        <item>no</item>
+        <item>fuck</item>
+        <item>whatsapp</item>
+        <item>facebook</item>
+    </string-array>
+
+    <string name="balance_less">When your balance is less than 1500 diamonds, Level will become Lv0</string>
+    <string name="lbl_set_profile_photo">Set profile photo</string>
+    <string name="lbl_take_camera_picture">Take camera picture</string>
+    <string name="lbl_choose_from_gallery">Choose from gallery</string>
+    <string name="toast_image_intent_null">Null</string>
+    <string name="you_wil_get">You wil get several Video Chat Cards after</string>
+    <string name="the_new">The new version is currently
+        \navailable For better experience
+        \nin our app, we suggest you to
+        \nupdate now.</string>
+
+    <string name="this_week">This Week</string>
+    <string name="today">Today</string>
+</resources>

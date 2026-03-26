@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallet_background"
+    tools:context=".activity.IncomingCallScreen">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+
+    <ImageView
+        android:id="@+id/caller_pic"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_above="@+id/caller_name"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="24dp" />
+
+
+    <TextView
+        android:id="@+id/caller_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/lato_bold"
+        android:text="Sapna Choudhray"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/caller_name"
+        android:layout_margin="48dp">
+
+        <TextView
+            android:id="@+id/call_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/lato_medium"
+            android:text="Incoming Video Call..."
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/decline_call"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/btn_endcall_normal" />
+
+        <ImageView
+            android:id="@+id/accept_call"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/btn_startcall" />
+
+    </RelativeLayout>
+</RelativeLayout>

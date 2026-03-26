@@ -1,0 +1,75 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="textSizeLarge">16sp</dimen>
+
+
+    <!-- buttons -->
+
+    <!-- buttons -->
+    <dimen name="call_button_size">60dp</dimen>
+    <dimen name="other_button_size">54dp</dimen>
+
+
+    <dimen name="DP0">0dp</dimen>
+    <dimen name="DP1">1dp</dimen>
+    <dimen name="DP2">2dp</dimen>
+    <dimen name="DP3">3dp</dimen>
+    <dimen name="DP4">4dp</dimen>
+    <dimen name="DP5">5dp</dimen>
+    <dimen name="DP6">6dp</dimen>
+    <dimen name="DP7">7dp</dimen>
+    <dimen name="DP8">8dp</dimen>
+    <dimen name="DP10">10dp</dimen>
+    <dimen name="DP12">12dp</dimen>
+    <dimen name="DP15">15dp</dimen>
+    <dimen name="DP20">20dp</dimen>
+    <dimen name="DP25">25dp</dimen>
+    <dimen name="DP30">30dp</dimen>
+    <dimen name="DP35">35dp</dimen>
+    <dimen name="DP38">38dp</dimen>
+    <dimen name="DP40">40dp</dimen>
+    <dimen name="DP45">45dp</dimen>
+    <dimen name="DP50">50dp</dimen>
+    <dimen name="DP60">60dp</dimen>
+    <dimen name="DP70">70dp</dimen>
+    <dimen name="DP75">75dp</dimen>
+    <dimen name="DP80">80dp</dimen>
+    <dimen name="DP90">90dp</dimen>
+    <dimen name="DP95">95dp</dimen>
+    <dimen name="DP100">100dp</dimen>
+    <dimen name="DP105">105dp</dimen>
+    <dimen name="DP110">110dp</dimen>
+    <dimen name="DP130">130dp</dimen>
+    <dimen name="DP150">150dp</dimen>
+    <dimen name="DP200">200dp</dimen>
+    <dimen name="DP250">250dp</dimen>
+    <dimen name="DP300">300dp</dimen>
+    <dimen name="DP500">500dp</dimen>
+
+
+    <dimen name="SP10">10sp</dimen>
+    <dimen name="SP12">12sp</dimen>
+    <dimen name="SP14">14sp</dimen>
+    <dimen name="SP15">15sp</dimen>
+    <dimen name="SP16">16sp</dimen>
+    <dimen name="SP18">18sp</dimen>
+    <dimen name="SP20">20sp</dimen>
+    <dimen name="SP25">25sp</dimen>
+
+    <!-- Live Activity -->
+    <dimen name="live_bottom_btn_size">44dp</dimen>
+    <dimen name="live_bottom_btn_margin">12dp</dimen>
+
+
+    <dimen name="control_bottom_horizontal_margin">30dp</dimen>
+    <dimen name="control_bottom_margin">24dp</dimen>
+    <dimen name="local_back_icon_size">50dp</dimen>
+    <dimen name="local_preview_height">117dp</dimen>
+    <dimen name="local_preview_width">88dp</dimen>
+    <dimen name="remote_back_icon_margin_bottom">90dp</dimen>
+
+
+</resources>

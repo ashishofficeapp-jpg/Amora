@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wallet_background">
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.20"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="56dp"
+            android:paddingTop="32dp"
+            android:paddingEnd="56dp"
+            android:paddingBottom="32dp">
+
+
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bg_white_circle"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_person"
+                android:translationX="-40dp"
+                app:layout_constraintBottom_toBottomOf="@id/center_heart"
+                app:layout_constraintStart_toEndOf="@id/center_heart"
+                app:layout_constraintTop_toTopOf="@id/center_heart"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/female_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bg_white_circle"
+                android:elevation="16dp"
+                android:translationX="40dp"
+                app:layout_constraintBottom_toBottomOf="@id/center_heart"
+                app:layout_constraintEnd_toStartOf="@id/center_heart"
+                app:layout_constraintTop_toTopOf="@id/center_heart"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageView
+                android:id="@+id/center_heart"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="16dp"
+                android:src="@drawable/oncam_friends_heart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/top_most_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:shadowColor="@color/onCamShadowColor"
+                android:shadowDx="-6"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@string/you_re"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                android:translationY="12dp"
+                app:layout_constraintBottom_toTopOf="@id/riend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/f"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:shadowColor="@color/onCamShadowColor"
+                android:shadowDx="-6"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@string/f"
+                android:textColor="@color/white"
+                android:textSize="56sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/riend"
+                app:layout_constraintEnd_toStartOf="@id/riend" />
+
+
+            <TextView
+                android:id="@+id/riend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center"
+                android:shadowColor="@color/onCamShadowColor"
+                android:shadowDx="-6"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@string/riend"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.46"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top_most_text" />
+
+            <TextView
+                android:id="@+id/S"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:shadowColor="@color/onCamShadowColor"
+                android:shadowDx="-6"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@string/s"
+                android:textColor="@color/white"
+                android:textSize="56sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/riend"
+                app:layout_constraintStart_toEndOf="@id/riend" />
+
+            <TextView
+                android:id="@+id/you_two_liked_each_other_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_semibold"
+                android:text="@string/you_and_puja_cutipie_liked_each_other"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:translationY="-2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/riend" />
+
+            <Button
+                android:id="@+id/video_call_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/login_button"
+                android:elevation="1dp"
+                app:layout_constraintBottom_toTopOf="@id/say_hello_btn"
+                app:layout_constraintEnd_toEndOf="@id/S"
+                app:layout_constraintStart_toStartOf="@id/f" />
+
+            <TextView
+                android:id="@+id/video_call_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:fontFamily="@font/lato_semibold"
+                android:text="@string/video_call"
+                android:textColor="#F2F5F8"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/video_call_btn"
+                app:layout_constraintEnd_toEndOf="@id/video_call_btn"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="@id/video_call_btn" />
+
+            <ImageView
+                android:id="@+id/video_call_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:elevation="10dp"
+                android:src="@drawable/oncam_video_icon"
+                app:layout_constraintBottom_toBottomOf="@id/video_call_btn"
+                app:layout_constraintEnd_toStartOf="@id/video_call_txt"
+                app:layout_constraintTop_toTopOf="@id/video_call_btn"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/say_hello_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oncam_stroke_bg"
+                android:elevation="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/video_call_btn"
+                app:layout_constraintStart_toStartOf="@id/video_call_btn" />
+
+            <TextView
+                android:id="@+id/say_hello_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_semibold"
+                android:text="@string/say_hello"
+                android:textColor="#FA36A4"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBaseline_toBaselineOf="@id/say_hello_btn"
+                app:layout_constraintEnd_toEndOf="@id/say_hello_btn"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="@id/say_hello_btn" />
+
+            <ImageView
+                android:id="@+id/chat_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/oncam_chat_icon"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/say_hello_txt"
+                app:layout_constraintEnd_toStartOf="@id/say_hello_txt"
+                app:layout_constraintTop_toTopOf="@id/say_hello_txt"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+</layout>

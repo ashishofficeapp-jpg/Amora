@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_bg_solidgradiant"
+        android:padding="40dp"
+        tools:context=".FToFConnecting">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/circular_waves"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_rawRes="@raw/oncam_circular_waves" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/pumping_heart"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_white_circle"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_rawRes="@raw/oncam_pumping_heart" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="@string/finding_people_who_are_video_chatting_in_real_time_for_you"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/pumping_heart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

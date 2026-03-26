@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:paddingVertical="@dimen/DP5"
+    android:paddingStart="@dimen/DP60"
+    android:paddingEnd="@dimen/DP10">
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorNavigationBg"
+        android:elevation="2dp"
+        android:gravity="center"
+        android:text="Date message"
+        android:textColor="@color/colorNavigationFont"
+        android:textSize="@dimen/SP15"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/rounded_relativemsgin"
+        android:drawablePadding="@dimen/DP10"
+        android:elevation="2dp"
+        android:paddingStart="@dimen/DP20"
+        android:paddingTop="2.5dp"
+        android:paddingEnd="@dimen/DP10"
+        android:paddingBottom="2.5dp"
+        android:text="Placeholder message"
+        android:textColor="#fff"
+        android:textSize="@dimen/SP15" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_image"
+        android:layout_width="@dimen/DP100"
+        android:layout_height="@dimen/DP100"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="@dimen/DP10">
+
+        <ImageView
+            android:id="@+id/img_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/rl_audio"
+        android:layout_width="@dimen/DP150"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/rounded_relativemsgin"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_visualizer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DP40"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/tv_timeduration"
+            android:src="@drawable/voicevis" />
+
+        <TextView
+            android:id="@+id/tv_timeduration"
+            android:layout_width="@dimen/DP60"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="00:00"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/SP15" />
+    </RelativeLayout>
+    <!--  <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:background="@drawable/rounded_relativemsgin"
+          android:padding="@dimen/DP10">
+
+          <TextView
+              android:id="@+id/tv_msg"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/DP20"
+              android:text="Msg will be Displayed here"
+              android:textColor="@color/colorWhite" />
+      </RelativeLayout>-->
+</RelativeLayout>

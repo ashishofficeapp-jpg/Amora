@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/DP10">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/diamondbig" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/DP10"
+                android:src="@drawable/diamondbig" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_close"
+                android:layout_width="@dimen/DP50"
+                android:layout_height="@dimen/DP50"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="-5dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_close" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_friendcall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_close"
+                android:layout_centerHorizontal="true"
+                android:text="Insufficient Coins"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/SP20" />
+
+            <TextView
+                android:id="@+id/tv_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_friendcall"
+                android:layout_marginTop="-5dp"
+                android:gravity="center"
+                android:text="30 coin/min" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_plan1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/DP40"
+                android:layout_below="@id/tv_cost"
+                android:layout_marginStart="@dimen/DP10"
+                android:layout_marginTop="@dimen/DP10"
+                android:layout_marginEnd="@dimen/DP10"
+                android:background="@drawable/rounded_relativepink">
+
+                <ImageView
+                    android:id="@+id/img_diamond"
+                    android:layout_width="@dimen/DP25"
+                    android:layout_height="@dimen/DP25"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/DP10"
+                    android:src="@drawable/diamond" />
+
+                <TextView
+                    android:id="@+id/tv_coininsuf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/DP10"
+                    android:layout_toEndOf="@id/img_diamond"
+                    android:text="222"
+                    android:textColor="@color/colorWhite" />
+
+                <Button
+                    android:id="@+id/tv_amountinsuf"
+                    android:layout_width="@dimen/DP110"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/DP2"
+                    android:layout_marginEnd="@dimen/DP5"
+                    android:layout_marginBottom="@dimen/DP2"
+                    android:background="@drawable/rounded_relativeaddfriendwhite"
+                    android:text="222"
+                    android:textColor="@color/colorPink" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_plan2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/DP40"
+                android:layout_below="@id/rl_plan1"
+                android:layout_marginStart="@dimen/DP10"
+                android:layout_marginTop="@dimen/DP10"
+                android:layout_marginEnd="@dimen/DP10"
+                android:layout_marginBottom="@dimen/DP20"
+                android:background="@drawable/rounded_relativepink">
+
+                <ImageView
+                    android:id="@+id/img_diamond2"
+                    android:layout_width="@dimen/DP25"
+                    android:layout_height="@dimen/DP25"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/DP10"
+                    android:src="@drawable/diamond" />
+
+                <TextView
+                    android:id="@+id/tv_coin2insuf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/DP10"
+                    android:layout_toEndOf="@id/img_diamond2"
+                    android:text="222"
+                    android:textColor="@color/colorWhite" />
+
+                <Button
+                    android:id="@+id/tv_amount2insuf"
+                    android:layout_width="@dimen/DP110"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/DP2"
+                    android:layout_marginEnd="@dimen/DP5"
+                    android:layout_marginBottom="@dimen/DP2"
+                    android:background="@drawable/rounded_relativeaddfriendwhite"
+                    android:text="222"
+                    android:textColor="@color/colorPink" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_insufficient"
+    android:background="@color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/gradient_start"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="25dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="172dp"
+            android:layout_height="172dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-14dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/coinfall" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/DP15"
+            android:fontFamily="@font/lato_bold"
+            android:text="Insufficient Coins"
+            android:textAlignment="center"
+            android:textColor="@color/colorPink"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/coin_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:drawableStart="@drawable/ic_coin"
+            android:drawablePadding="6dp"
+            android:fontFamily="@font/lato_semibold"
+            android:text="25/min"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tag_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_medium"
+            android:text="Recharge to enable 1 to 1 video chat"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/term_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingTop="5dp"
+            android:text="* Recharge to enable 1 to 1 video chat"
+            android:textAlignment="center"
+            android:textColor="@color/colorPink"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/plan_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="@dimen/DP15" />
+
+        <TextView
+            android:id="@+id/tv_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/DP10"
+            android:fontFamily="@font/lato_medium"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="Paid but coin not received?"
+            android:textColor="@color/textGrey"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/DP10"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_medium"
+                android:gravity="end"
+                android:text="Email us:"
+                android:textColor="@color/colorPink"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_medium"
+                android:gravity="start"
+                android:text=" zeepliveofficial@gmail.com"
+                android:textColor="@color/colorPink"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!--<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_corner_stroke"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:drawableStart="@drawable/ic_coin"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="299"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="4dp"
+                android:fontFamily="@font/lato_semibold"
+                android:text="₹ 150"
+                android:textAlignment="center"
+                android:textColor="@color/textGrey"
+                android:textSize="16sp" />
+        </RelativeLayout>-->
+
+    </LinearLayout>
+</RelativeLayout>

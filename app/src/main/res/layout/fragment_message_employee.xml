@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreen"
+    tools:context="com.meetlive.app.fragment.MessageFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/DP5">
+
+        <TextView
+            android:id="@+id/tv_nochatmsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="No data here."
+            android:textColor="@color/colorNavigationFont"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/DP10"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rr_messages"
+                android:layout_width="@dimen/DP0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_messages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Messages"
+                    android:textColor="@color/colorPink" />
+
+                <View
+                    android:id="@+id/v_messages"
+                    android:layout_width="@dimen/DP20"
+                    android:layout_height="@dimen/DP4"
+                    android:layout_below="@id/tv_messages"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/DP10"
+                    android:background="@drawable/rounded_view" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rr_friends"
+                android:layout_width="@dimen/DP0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Friends"
+                    android:textColor="@color/colorWhite" />
+
+                <View
+                    android:id="@+id/v_friends"
+                    android:layout_width="@dimen/DP20"
+                    android:layout_height="@dimen/DP4"
+                    android:layout_below="@id/tv_friends"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/DP10"
+                    android:background="@drawable/rounded_view"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_below="@id/ll_top"
+            android:background="@color/colorNavigationFont" />
+
+        <TextView
+            android:id="@+id/tv_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/v_line"
+            android:layout_marginStart="@dimen/DP10"
+            android:layout_marginTop="@dimen/DP10"
+            android:text="Chats"
+            android:textColor="@color/colorWhite"
+            android:visibility="gone" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeToRefresh"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/DP10"
+            android:layout_height="match_parent"
+            android:layout_above="@id/img_loader"
+            android:layout_below="@id/tv_chat">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_chatlist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/DP10"
+                android:layout_marginTop="@dimen/DP5"
+                android:layout_marginEnd="@dimen/DP10" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ImageView
+            android:id="@+id/img_loader"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/loader"
+            android:visibility="gone" />
+    </RelativeLayout>
+</FrameLayout>

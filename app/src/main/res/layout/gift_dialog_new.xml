@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/transparent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="295dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/card_start">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutGift"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/transparent"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="2dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="4dp"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="scrollable" />
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/tabViewpagerGift"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linear_header"
+            android:layout_below="@+id/tabLayoutGift"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-5dp" />
+
+        <LinearLayout
+            android:id="@+id/linear_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/purchase_coins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/availableCoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="3dp"
+                    android:drawableStart="@drawable/ic_coin_small"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="0"
+                    android:textColor="@color/greyPink"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/gift_buttom_bg"
+                android:orientation="horizontal"
+                android:weightSum="17">
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/gift_1_bg"
+                    android:gravity="center"
+                    android:padding="11dp"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e9017e" />
+
+                <TextView
+                    android:id="@+id/tv_11"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="11dp"
+                    android:text="11"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e9017e" />
+
+                <TextView
+                    android:id="@+id/tv_33"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="11dp"
+                    android:text="33"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e9017e" />
+
+                <TextView
+                    android:id="@+id/tv_77"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="11dp"
+                    android:text="77"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e9017e" />
+
+                <TextView
+                    android:id="@+id/tv_send"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="5"
+                    android:background="@drawable/gift_send_button"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:padding="11dp"
+                    android:text="Send"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

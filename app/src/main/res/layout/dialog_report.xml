@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <!--   <variable
+               name="response"
+               type="com.rozgar.custom_hrms.models.response.NotificationResponse" />-->
+
+
+        <variable
+            name="clickListener"
+            type="com.meetlive.app.dialog.ReportDialog.EventHandler" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:outlineSpotShadowColor="@color/white"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Report"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/incorrect_information">
+
+                <RadioButton
+                    android:id="@+id/incorrect_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_medium"
+                    android:paddingStart="10dp"
+                    android:text="Incorrect Information"
+                    android:textColor="@color/textGrey"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white300" />
+
+
+                <RadioButton
+                    android:id="@+id/sexual_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_medium"
+                    android:paddingStart="10dp"
+                    android:text="Sexual Content"
+                    android:textColor="@color/textGrey"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white300" />
+
+                <RadioButton
+                    android:id="@+id/repulsive_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_medium"
+                    android:paddingStart="10dp"
+                    android:text="Harassment or Repulsive content"
+                    android:textColor="@color/textGrey"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white300" />
+
+                <RadioButton
+                    android:id="@+id/unreasonable_demands"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_medium"
+                    android:paddingStart="10dp"
+                    android:text="Unreasonable Demands"
+                    android:textColor="@color/textGrey"
+                    android:textSize="16sp" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/report_reason"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_corner_stroke"
+                android:backgroundTint="@color/grey500"
+                android:fontFamily="@font/lato_medium"
+                android:gravity="start"
+                android:hint="Input report reason"
+                android:maxLength="140"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/report"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner_stroke"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/lato_medium"
+                    android:onClick="@{() -> clickListener.reportUser(0)}"
+                    android:padding="8dp"
+                    android:text="Report"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/report_block"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner_stroke"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/lato_medium"
+                    android:onClick="@{() -> clickListener.reportUser(1)}"
+                    android:padding="8dp"
+                    android:text="Report &amp; Block"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <!-- <data>
+        <variable
+            name="clickListener"
+            type="com.cfpl.meetlive.fragment.SearchFragment" />
+    </data>-->
+
+
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.meetlive.app.fragment.RecentRecharges">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/search_loader"
+            android:layout_width="@dimen/DP80"
+            android:layout_height="@dimen/DP80"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="-10dp"
+            android:adjustViewBounds="true"
+            android:elevation="@dimen/DP5"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_circular" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/search_loader" />
+
+
+        <Button
+            android:id="@+id/cv_refresh"
+            style="@style/CustomButton"
+            android:layout_width="@dimen/DP150"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/DP10"
+            android:fontFamily="@font/lato_semibold"
+            android:text="Refresh"
+            android:textAllCaps="false" />
+
+
+    </RelativeLayout>
+</layout>

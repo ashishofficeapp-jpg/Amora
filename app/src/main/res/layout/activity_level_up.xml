@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    tools:context=".activity.LevelUpActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/level_iv_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:src="@drawable/ic_setting_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/lato_regular"
+            android:text="My Level"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_top_up"
+        android:layout_below="@id/rl_top_layout"
+        android:layout_marginBottom="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/DP20"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/DP20"
+                android:background="@drawable/level_bg_user_level_head"
+                android:paddingBottom="10dp">
+
+                <FrameLayout
+                    android:id="@+id/level_fl_user"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_centerHorizontal="true">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_user"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/levelmale" />
+
+
+                    <TextView
+                        android:id="@+id/tv_user_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/lato_regular"
+                        android:gravity="center"
+                        android:text="LV 1"
+                        android:textSize="12sp"
+                        android:textColor="@color/white" />
+                </FrameLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/level_fl_user"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="24dp">
+
+                    <TextView
+                        android:id="@+id/level_tv_current_exp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5sp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="Lv1"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/level_tv_next_exp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="Lv2"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <FrameLayout
+                        android:id="@+id/progress_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@+id/level_tv_next_exp"
+                        android:layout_toRightOf="@+id/level_tv_current_exp">
+
+                        <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
+                            android:id="@+id/level_user_progressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:indeterminate="false"
+                            android:maxHeight="10dp"
+                            android:minHeight="10dp"
+                            android:progress="10"
+                            app:backgroundColor="@color/white"
+                            app:isRounded="true"
+                            app:progressColor="@color/colorPink" />
+
+
+                        <TextView
+                            android:id="@+id/tv_level_percentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/lato_regular"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="10%"
+                            android:textAlignment="center"
+                            android:textColor="@color/sky_blue"
+                            android:textSize="10sp" />
+
+                    </FrameLayout>
+
+
+                    <TextView
+                        android:id="@+id/level_tv_current_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/progress_frame"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/lato_regular"
+                        android:textColor="#ffd500"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/level_tv_next_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/progress_frame"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/lato_regular"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_progress"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Top-up 100 coin to level up!"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/level_ways_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/DP20"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="@dimen/DP20"
+                android:background="@drawable/level_up_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/level_rule_bg"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Level Rule"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_level_rule"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Level"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey900" />
+
+                    <TextView
+                        android:id="@+id/tv_spent_coin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Top-up Amount"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/layout_level0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="1dp"
+                        android:paddingEnd="1dp"
+                        android:paddingBottom="6dp">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/user_level_recyclerview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_progress"
+                android:layout_marginLeft="@dimen/DP20"
+                android:layout_marginTop="@dimen/DP15"
+                android:layout_marginRight="@dimen/DP20"
+                android:layout_marginBottom="@dimen/DP15"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/balance_less"
+                android:textColor="#8f8e92"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/availableCoins"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_top_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/DP20"
+        android:layout_marginRight="@dimen/DP20"
+        android:background="@drawable/login_button"
+        android:fontFamily="@font/lato_medium"
+        android:padding="14dp"
+        android:text="Top Up Now"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:layout_marginBottom="2dp"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</RelativeLayout>
+
+

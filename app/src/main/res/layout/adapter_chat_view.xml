@@ -1,0 +1,370 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/time_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="12dp"
+        android:background="@drawable/rounded_corner"
+        android:fontFamily="@font/lato_medium"
+        android:paddingLeft="10dp"
+        android:paddingTop="7dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="7dp"
+        android:text="@string/app_name"
+        android:textColor="@color/colorWhite" />
+
+    <RelativeLayout
+        android:id="@+id/receiver_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/rounded_relativemsgout"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/receiver_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_medium"
+            android:paddingLeft="12dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:text="What is your name ?"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/receive_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/receiver_msg"
+            android:layout_marginTop="-2dp"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="6dp"
+            android:text="--:-- PM"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/gift_request_container"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_relativemsgout"
+        android:elevation="4dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/request_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_medium"
+            android:paddingLeft="12dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:text="Hey Baby,\nPlease give me this gift"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/requested_gift_img"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/DP8"
+            android:src="@drawable/boygirl" />
+
+        <TextView
+            android:id="@+id/sent_gift_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/request_message"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/DP12"
+            android:background="@drawable/rounded_corner_transparent_white1"
+            android:clickable="true"
+            android:fontFamily="@font/lato_semibold"
+            android:paddingLeft="@dimen/DP12"
+            android:paddingTop="@dimen/DP6"
+            android:paddingRight="@dimen/DP12"
+            android:paddingBottom="@dimen/DP4"
+            android:text="Send Gift"
+            android:textColor="@color/pinkNew"
+            android:textSize="@dimen/SP12" />
+
+        <TextView
+            android:id="@+id/gift_request_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/requested_gift_img"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="6dp"
+            android:text="--:-- PM"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/call_request_container"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_relativemsgout"
+        android:elevation="4dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/call_request_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/requested_call_img"
+            android:fontFamily="@font/lato_medium"
+            android:paddingLeft="12dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:text="Hey Baby, Please call me"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/requested_call_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/DP8"
+            android:padding="@dimen/DP8"
+            android:src="@drawable/ic_call_"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/call_request_message"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/DP8"
+            android:layout_marginBottom="@dimen/DP10"
+            android:background="@drawable/rounded_corner_transparent_white1"
+            android:clickable="true"
+            android:fontFamily="@font/lato_semibold"
+            android:paddingLeft="@dimen/DP12"
+            android:paddingTop="@dimen/DP6"
+            android:paddingRight="@dimen/DP12"
+            android:paddingBottom="@dimen/DP4"
+            android:text="Call Request"
+            android:textColor="@color/pinkNew"
+            android:textSize="@dimen/SP12" />
+
+        <TextView
+            android:id="@+id/call_request_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/DP15"
+            android:layout_below="@+id/call_request_message"
+            android:layout_marginTop="@dimen/DP20"
+            android:layout_toRightOf="@+id/call_btn"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:text="--:-- PM"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/receiver_image_container"
+        android:layout_width="200dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_receiver"
+        android:paddingLeft="16dp"
+        android:paddingTop="6dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="6dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/receiver_image_msg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/receive_time_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparentBlack"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="6dp"
+            android:paddingTop="3dp"
+            android:paddingRight="6dp"
+            android:paddingBottom="3dp"
+            android:text="--"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sender_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/rounded_relativemsgin"
+        android:elevation="4dp"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/sender_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:fontFamily="@font/lato_medium"
+            android:paddingLeft="12dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:text="What is your name ?"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/sent_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sender_msg"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="-2dp"
+            android:fontFamily="@font/lato_regular"
+            android:padding="6dp"
+            android:text="--"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sender_image_container"
+        android:layout_width="200dp"
+        android:layout_height="175dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_sender"
+        android:paddingLeft="6dp"
+        android:paddingTop="6dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="6dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/sender_image_msg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/sent_time_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparentBlack"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="6dp"
+            android:paddingTop="3dp"
+            android:paddingRight="6dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/receiver_gift_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="0.1dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="0.1dp">
+
+        <ImageView
+            android:id="@+id/receiver_gift"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="8dp" />
+
+        <TextView
+            android:id="@+id/receive_gift_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/receiver_gift"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="6dp"
+            android:text="--"
+            android:textColor="@color/white300"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sender_gift_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="0.1dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="0.1dp"
+        android:gravity="right">
+
+        <ImageView
+            android:id="@+id/sender_gift"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:paddingTop="6dp"
+            android:paddingRight="16dp" />
+
+        <TextView
+            android:id="@+id/sent_gift_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sender_gift"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="16dp"
+            android:text="--"
+            android:textColor="@color/white300"
+            android:textSize="11sp" />
+    </RelativeLayout>
+</LinearLayout>

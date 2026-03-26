@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LocationSelection">
+
+    <LinearLayout
+        android:id="@+id/ll_topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/DP20"
+        android:layout_marginTop="@dimen/DP20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/DP3"
+            android:layout_height="@dimen/DP20"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/DP5"
+            android:text="Location"
+            android:textColor="@color/black"
+            android:textSize="@dimen/SP25" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_topview"
+        android:layout_marginStart="@dimen/DP20"
+        android:layout_marginTop="@dimen/DP5"
+        android:text="* Select any one from below" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_msg"
+        android:layout_marginStart="@dimen/DP20"
+        android:layout_marginTop="@dimen/DP20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_india"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_white"
+            android:paddingStart="@dimen/DP15"
+            android:paddingTop="@dimen/DP5"
+            android:paddingEnd="@dimen/DP15"
+            android:paddingBottom="@dimen/DP5"
+            android:text="India"
+            android:textColor="@color/black"
+            android:textSize="@dimen/SP20" />
+
+        <TextView
+            android:id="@+id/tv_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/DP20"
+            android:background="@drawable/rounded_white"
+            android:paddingStart="@dimen/DP15"
+            android:paddingTop="@dimen/DP5"
+            android:paddingEnd="@dimen/DP15"
+            android:paddingBottom="@dimen/DP5"
+            android:text="Other Country"
+            android:textColor="@color/black"
+            android:textSize="@dimen/SP20" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_next"
+        android:layout_width="@dimen/DP200"
+        android:layout_height="@dimen/DP40"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/DP20"
+        android:background="@drawable/rounded_login"
+        android:gravity="center"
+        android:text="NEXT"
+        android:textColor="@color/white"
+        android:textSize="@dimen/SP20"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loader"
+        android:layout_width="@dimen/DP80"
+        android:layout_height="@dimen/DP80"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="-10dp"
+        android:adjustViewBounds="true"
+        android:elevation="@dimen/DP10"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_circular" />
+
+</RelativeLayout>

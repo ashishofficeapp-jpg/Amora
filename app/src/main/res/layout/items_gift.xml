@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/DP90"
+    android:layout_height="@dimen/DP95"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:id="@+id/contact_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_bt_input"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/gift_ly_background"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:text="x11"
+            android:textColor="@color/white"
+            android:textSize="9sp" />
+
+        <ImageView
+            android:id="@+id/img_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_coin"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/DP8" />
+
+        <TextView
+            android:id="@+id/tv_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/DP10"
+            android:drawableStart="@drawable/ic_coin_small"
+            android:drawablePadding="@dimen/DP5"
+            android:gravity="center"
+            android:text="500"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp" />
+    </RelativeLayout>
+</RelativeLayout>

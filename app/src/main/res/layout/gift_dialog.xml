@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorNavigationBg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_giftmsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tricolor_gradient_video_gift"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:padding="@dimen/DP10"
+        android:text="Send gifts to your favorite girl, she'll be thrilled~"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/img_loader"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/DP25"
+        android:layout_marginBottom="@dimen/DP25"
+        android:src="@drawable/loader"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gift_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

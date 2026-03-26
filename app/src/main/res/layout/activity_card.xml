@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.meetlive.app.activity.CardActivity.EventHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mycard_bg"
+        android:orientation="vertical"
+        tools:context=".activity.CardActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/header_layout_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/setting_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_card_back" />
+
+                    <TextView
+                        android:id="@+id/tv_setting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:paddingRight="50dp"
+                        android:text="My Card"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/grey200" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/video_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/video_card_bg" />
+
+                        <TextView
+                            style="@style/AudioFileInfoOverlayTextCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginStart="35dp"
+                            android:fontFamily="@font/lato_italic"
+                            android:text="Video Chat card"
+                            android:textColor="@color/pinkNew"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_card_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/lato_regular"
+                            android:text="x0"
+                            android:textColor="@color/pinkNew"
+                            android:textSize="36sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="14dp"
+                        android:background="@drawable/instruction_background">
+
+                        <RelativeLayout
+                            android:id="@+id/relative_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:id="@+id/tv_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:drawableStart="@mipmap/squire"
+                                android:drawablePadding="2dp"
+                                android:fontFamily="@font/lato_semibold"
+                                android:justificationMode="inter_word"
+                                android:text="Each Video Chat Card Valid for 30 Days."
+                                android:textColor="@color/grey500"
+                                android:textSize="16sp" />
+
+
+                            <TextView
+                                android:id="@+id/tv_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_1"
+                                android:layout_marginTop="10dp"
+                                android:drawableStart="@mipmap/squire"
+                                android:drawablePadding="2dp"
+                                android:fontFamily="@font/lato_semibold"
+                                android:justificationMode="inter_word"
+                                android:text="@string/you_wil_get"
+                                android:textColor="@color/grey500"
+                                android:textSize="@dimen/SP16" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_2"
+                                android:fontFamily="@font/lato_semibold"
+                                android:justificationMode="inter_word"
+                                android:paddingStart="15dp"
+                                android:text="Video chat."
+                                android:textColor="@color/grey500"
+                                android:textSize="@dimen/SP16" />
+                        </RelativeLayout>
+
+
+                    </FrameLayout>
+
+                    <com.meetlive.app.utils.BoldTextView
+                        android:id="@+id/wallet_list_offer"
+                        android:layout_width="123dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="3dp"
+                        android:background="@mipmap/instructions"
+                        android:gravity="center_horizontal"
+                        android:lineSpacingMultiplier="0.8"
+                        android:padding="4dp"
+                        android:text="Instruction"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

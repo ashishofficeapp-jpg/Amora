@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.meetlive.app.activity.WinnerActivity.EventHandler" />
+    </data>
+
+
+    <RelativeLayout
+        android:id="@+id/container_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.WinnerActivity">
+
+        <FrameLayout
+            android:id="@+id/fragment_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/winner_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_close"
+                android:layout_width="@dimen/DP60"
+                android:layout_height="@dimen/DP50"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="0dp"
+                android:elevation="@dimen/DP2"
+                android:gravity="center"
+                android:onClick="@{() -> clickListener.backPage()}">
+
+                <ImageView
+                    android:id="@+id/img_back_winner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:gravity="left"
+                    android:maxWidth="70dp"
+                    android:src="@drawable/ic_back_winner"
+                    android:padding="4dp" />
+
+            </RelativeLayout>
+
+
+            <ScrollView
+                android:id="@+id/main_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/linear_bt"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="15dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="15dp"
+                        android:paddingBottom="5dp"
+                        android:weightSum="2">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            app:cardBackgroundColor="@color/transparent"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="0dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:contentPadding="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical">
+
+                                <Button
+                                    android:id="@+id/top_receiver_tabs"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0"
+                                    android:background="@color/white"
+                                    android:gravity="center_vertical|center"
+                                    android:text="Top Receiver"
+                                    android:textColor="@color/pinkNew" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            app:cardBackgroundColor="@color/transparent"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="0dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:contentPadding="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical">
+
+
+                                <Button
+                                    android:id="@+id/top_giver_tabs"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0"
+                                    android:background="@color/white"
+                                    android:gravity="center_vertical|center"
+                                    android:text="Top Giver"
+                                    android:textColor="@color/pinkNew" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linear_bt"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="horizontal"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_today"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:fontFamily="@font/lato_regular"
+                                android:gravity="center"
+                                android:text="@string/today"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <View
+                                android:id="@+id/view1"
+                                android:layout_width="match_parent"
+                                android:layout_height="3dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginRight="25dp"
+                                android:background="@color/white"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/linear_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_this_week"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:fontFamily="@font/lato_regular"
+                                android:gravity="center"
+                                android:text="@string/this_week"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="match_parent"
+                                android:layout_height="3dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:background="@color/white"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_top_fans"
+                        android:layout_width="match_parent"
+                        android:layout_height="235dp"
+                        android:layout_below="@+id/linear_text"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="-20dp"
+                        android:gravity="center">
+
+                        <FrameLayout
+                            android:id="@+id/fl_top2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="5dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/iv_top2_user"
+                                android:layout_width="88dp"
+                                android:layout_height="88dp"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/girl1"
+                                app:civ_border_color="#eeeef6"
+                                app:civ_border_width="1dp" />
+
+                            <ImageView
+                                android:id="@+id/iv_top2_user_frame"
+                                android:layout_width="107.2dp"
+                                android:layout_height="107.2dp"
+                                android:layout_marginTop="88dp"
+                                android:paddingLeft="3dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="3dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/top2" />
+
+                            <TextView
+                                android:id="@+id/user_name2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="65dp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/lato_medium"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="Hollywood"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="180dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/get_coin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:padding="1dp"
+                                    android:src="@mipmap/coin_new" />
+
+                                <TextView
+                                    android:id="@+id/user_coin2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:fontFamily="@font/lato_medium"
+                                    android:gravity="center"
+                                    android:text="56k"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                        </FrameLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/fl_top1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="20dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/iv_top1_user"
+                                android:layout_width="88dp"
+                                android:layout_height="88dp"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/girl1"
+                                app:civ_border_color="#eeeef6"
+                                app:civ_border_width="1dp" />
+
+                            <ImageView
+                                android:id="@+id/iv_top1_user_frame"
+                                android:layout_width="107.2dp"
+                                android:layout_height="107.2dp"
+                                android:layout_marginTop="88dp"
+                                android:paddingLeft="3dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="3dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/top1" />
+
+                            <TextView
+                                android:id="@+id/user_name1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="65dp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/lato_medium"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="Hollywood"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="180dp"
+                                android:layout_marginRight="15dp"
+                                android:background="@drawable/get_coin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/img_coin"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@mipmap/coin_new" />
+
+                                <TextView
+                                    android:id="@+id/user_coin1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:fontFamily="@font/lato_medium"
+                                    android:gravity="center"
+                                    android:text="56k"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+
+                        </FrameLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/fl_top3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="5dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/iv_top3_user"
+                                android:layout_width="88dp"
+                                android:layout_height="88dp"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/girl1"
+                                app:civ_border_color="#eeeef6"
+                                app:civ_border_width="1dp" />
+
+                            <ImageView
+                                android:id="@+id/iv_top3_user_frame"
+                                android:layout_width="107.2dp"
+                                android:layout_height="107.2dp"
+                                android:layout_marginTop="88dp"
+                                android:paddingLeft="3dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="3dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/top3" />
+
+                            <TextView
+                                android:id="@+id/user_name3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="65dp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/lato_medium"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="Hollywood"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="180dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/get_coin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:padding="1dp"
+                                    android:src="@mipmap/coin_new" />
+
+                                <TextView
+                                    android:id="@+id/user_coin3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:fontFamily="@font/lato_medium"
+                                    android:gravity="center"
+                                    android:text="56k"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/linear_top_fans"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp" />
+
+
+                </RelativeLayout>
+            </ScrollView>
+
+
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>

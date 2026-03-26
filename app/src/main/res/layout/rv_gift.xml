@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contact_layout"
+    android:layout_width="@dimen/DP90"
+    android:layout_height="@dimen/DP105"
+    android:background="@drawable/gift_selected"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/img_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_coin"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/DP10" />
+
+    <TextView
+        android:id="@+id/tv_coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/DP10"
+        android:drawableStart="@drawable/ic_coin_small"
+        android:drawablePadding="@dimen/DP5"
+        android:gravity="center"
+        android:text="500"
+        android:textColor="@color/colorWhite" />
+</RelativeLayout>

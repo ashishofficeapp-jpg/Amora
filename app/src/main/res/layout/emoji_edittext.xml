@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+        android:id="@+id/et_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/DP5"
+        android:layout_marginBottom="-5dp"
+        android:layout_toStartOf="@id/img_smile"
+        android:backgroundTint="@android:color/transparent"
+        android:hint="Type Message..."
+        android:imeOptions="actionSend"
+        android:inputType="text"
+        android:paddingEnd="@dimen/DP10"
+        android:textColor="@color/black"
+        android:textColorHint="@color/colorNavigationFont"
+        android:textSize="@dimen/SP15" />
+
+</LinearLayout>

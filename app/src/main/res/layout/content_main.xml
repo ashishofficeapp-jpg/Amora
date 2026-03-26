@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.meetlive.app.activity.MainActivity">
+
+
+    <!--<androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />-->
+
+    <FrameLayout
+        android:id="@+id/fragment_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        android:visibility="gone"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvbottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wallet_background_bottom"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp">
+
+            <ImageView
+                android:id="@+id/img_newMenuHome"
+                android:layout_width="@dimen/DP0"
+                android:layout_height="@dimen/_21sdp"
+                android:layout_weight="1"
+                android:onClick="newHomeMenu"
+                android:src="@drawable/heartattackselected" />
+
+            <ImageView
+                android:id="@+id/img_newMenuOnCam"
+                android:layout_width="@dimen/DP0"
+                android:layout_height="@dimen/_21sdp"
+                android:layout_weight="1"
+                android:onClick="maleOnCamMenu"
+                android:src="@drawable/playbuttonunselect" />
+
+
+            <ImageView
+                android:id="@+id/img_newMenuMessage"
+                android:layout_width="@dimen/DP0"
+                android:layout_height="26dp"
+                android:onClick="newChatMenu"
+                android:layout_weight="1"
+                android:src="@drawable/conversationunselect" />
+
+            <ImageView
+                android:id="@+id/img_newMenuProfile"
+                android:layout_width="@dimen/DP0"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_weight="1"
+                android:onClick="newProfileMenu"
+                android:src="@drawable/avatarunselect" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_ban"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgimg"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/userban" />
+
+            <TextView
+                android:id="@+id/tv_banmsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgimg"
+                android:background="@color/black"
+                android:fontFamily="@font/lato_semibold"
+                android:gravity="center"
+                android:padding="20dp"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#ffff2366</color>
+    <color name="colorBlack">#ff000000</color>
+    <color name="colorPrimary">#ffff2366</color>
+    <color name="colorPrimaryDark">#ffff2366</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="gray">#989898</color>
+    <!--<color name="textBlack">#212121</color>-->
+    <color name="textBlack">#1E3058</color>
+    <color name="grey200">#eeeeee</color>
+    <color name="white300">#e0e0e0</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent_new">#00000000</color>
+    <color name="Black">#000000</color>
+    <color name="onCamShadowColor">#E22194</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="textGrey">#757575</color>
+    <color name="grey500">#9e9e9e</color>
+    <color name="greyPink">#e9017e</color>
+    <color name="greyPink0">#fea134</color>
+    <color name="greyPink1">#ff7b65</color>
+    <color name="pinkNew">#fe339f</color>
+    <color name="colorGreen">#8AE6C5</color>
+    <color name="transparentBlack">#80000000</color>
+    <color name="colorPink">#ff3587</color>
+    <color name="colorNavigationBg">#201932</color>
+    <color name="colorPurple">#2c0f53</color>
+    <color name="colorNavigationFont">#635e70</color>
+    <color name="colorBackChat">#241e36</color>
+    <color name="colorRedoffline">#cc0000</color>
+    <color name="colorBusy">#FFFF00</color>
+
+    <color name="backgroundEnd">#ffff2366</color>
+    <color name="backgroundStart">#ffff9442</color>
+    <color name="colorWhite">#ffffffff</color>
+    <color name="color_FFFF6C57">#ffff6c57</color>
+    <color name="detail_list">#cc000000</color>
+    <color name="localBackground">#ff827b92</color>
+    <color name="viplist">#ffe5e5e5</color>
+
+    <color name="lv1">#F673B9</color>
+    <color name="lv2">#FA67B6</color>
+    <color name="lv3">#F458AC</color>
+    <color name="lv4">#F650A9</color>
+    <color name="lv5">#F847A7</color>
+    <color name="lv6">#FF39A4</color>
+    <color name="lv7">#FA2D9C</color>
+    <color name="lv8">#FF2199</color>
+    <color name="lv9">#F80F8D</color>
+    <color name="lv10">#E9017E</color>
+    <color name="white_100">#fafafa</color>
+    <color name="grey900">#dfdde9</color>
+    <color name="line_pop_color">#f1efff</color>
+    <color name="gray_6">#666666</color>
+    <color name="white80">#cdffffff</color>
+
+
+
+</resources>

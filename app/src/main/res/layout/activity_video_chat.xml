@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_video_chat_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/live_btn_beautification"
+        android:layout_width="@dimen/live_bottom_btn_size"
+        android:layout_height="@dimen/live_bottom_btn_size"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/live_bottom_btn_margin"
+        android:layout_marginLeft="@dimen/live_bottom_btn_margin"
+        android:layout_marginBottom="@dimen/DP15"
+        android:layout_toEndOf="@+id/rl_giftin"
+        android:background="@drawable/rounded_bg_full_transparent"
+        android:elevation="@dimen/DP1"
+        android:onClick="onBeautyClicked"
+        android:scaleType="centerCrop"
+        android:src="@drawable/btn_beauty"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/img_imageShow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DP200"
+        android:layout_marginTop="@dimen/DP200"
+        android:elevation="@dimen/DP1"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_incominggiftrequest"
+        android:layout_width="270dp"
+        android:layout_height="@dimen/DP60"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/DP10"
+        android:background="@drawable/tricolor_gradient_video_call"
+        android:elevation="@dimen/DP10"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_giftrequest"
+            android:layout_width="@dimen/DP50"
+            android:layout_height="@dimen/DP50"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/DP10" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/tv_sendGift"
+            android:layout_toEndOf="@id/img_giftrequest"
+            android:fontFamily="@font/lato_bold"
+            android:gravity="center"
+            android:text="Hey darling, I want this\n gift from you"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_sendGift"
+            android:layout_width="@dimen/DP60"
+            android:layout_height="@dimen/DP60"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_white_circle"
+            android:fontFamily="@font/lato_bold"
+            android:gravity="center"
+            android:text="Send"
+            android:textColor="@color/pinkNew" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remote_video_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wallet_background"
+        android:fitsSystemWindows="true">
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/DP100"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rounded_corner_tranparent_black"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/lato_semibold"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/icon_padding"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/remote_back_icon_margin_bottom"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/local_video_view_container"
+        android:layout_width="@dimen/local_preview_width"
+        android:layout_height="@dimen/local_preview_height"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/DP10"
+        android:layout_marginLeft="20dp"
+        android:background="@color/localBackground"
+        android:onClick="onLocalContainerClick">
+
+        <ImageView
+            android:layout_width="@dimen/local_back_icon_size"
+            android:layout_height="@dimen/local_back_icon_size"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_profile" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/control_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/control_bottom_margin">
+
+        <ImageView
+            android:id="@+id/btn_call"
+            android:layout_width="@dimen/call_button_size"
+            android:layout_height="@dimen/call_button_size"
+            android:layout_centerInParent="true"
+            android:onClick="onCallClicked"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/callin_hangup"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/btn_switch_camera"
+            android:layout_width="@dimen/other_button_size"
+            android:layout_height="@dimen/other_button_size"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/control_bottom_horizontal_margin"
+            android:layout_toEndOf="@id/btn_call"
+            android:layout_toRightOf="@id/btn_call"
+            android:onClick="onSwitchCameraClicked"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_switch_camera"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/btn_mute"
+            android:layout_width="@dimen/other_button_size"
+            android:layout_height="@dimen/other_button_size"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/control_bottom_horizontal_margin"
+            android:layout_marginBottom="@dimen/DP500"
+            android:layout_toStartOf="@id/btn_call"
+            android:layout_toLeftOf="@id/btn_call"
+            android:onClick="onLocalAudioMuteClicked"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_unmute"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_close"
+        android:layout_width="@dimen/DP40"
+        android:layout_height="@dimen/DP40"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/DP30"
+        android:layout_marginEnd="@dimen/DP10"
+        android:onClick="onCallClicked">
+
+        <ImageView
+            android:layout_width="@dimen/DP40"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/calling_x" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_pip"
+        android:layout_width="@dimen/DP40"
+        android:layout_height="@dimen/DP40"
+        android:layout_marginTop="@dimen/DP30"
+        android:layout_marginEnd="@dimen/DP10"
+        android:layout_toStartOf="@id/rl_close"
+        android:background="@drawable/circular"
+        android:onClick="startPictureInPictureFeature"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/pip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_info"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/DP40"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/DP10"
+        android:layout_marginTop="@dimen/DP30"
+        android:background="@drawable/round_vdochat_trans_black"
+        android:padding="@dimen/DP5">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profilepic"
+            android:layout_width="@dimen/DP40"
+            android:layout_height="@dimen/DP40"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/DP2"
+            android:layout_marginEnd="@dimen/DP5"
+            android:layout_toEndOf="@id/img_profilepic"
+            android:maxLength="15"
+            android:text="sample Text"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_chat"
+        android:layout_width="@dimen/DP45"
+        android:layout_height="@dimen/DP45"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/DP20"
+        android:layout_marginEnd="@dimen/DP10"
+        android:layout_marginBottom="@dimen/DP15"
+        android:background="@drawable/video_icon_talk_selector"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_giftin"
+        android:layout_width="@dimen/DP45"
+        android:layout_height="@dimen/DP45"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/DP20"
+        android:layout_marginBottom="@dimen/DP15"
+        android:layout_toEndOf="@id/rl_chat"
+        android:background="@drawable/video_icon_gift_selector"/>
+
+    <ListView
+        android:id="@+id/lv_allmessages"
+        android:layout_width="@dimen/DP250"
+        android:layout_height="130dp"
+        android:layout_above="@id/rl_bottom"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/DP10"
+        android:layout_marginBottom="@dimen/DP70"
+        android:background="@android:color/transparent"
+        android:divider="@null"
+        android:elevation="1dp"
+        android:scrollbars="none"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackChat"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/DP50"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/DP10"
+            android:layout_marginTop="@dimen/DP5"
+            android:src="@drawable/audio"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/img_audio1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/DP50"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/DP10"
+            android:layout_marginTop="@dimen/DP5"
+            android:src="@drawable/audio"
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/img_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/DP50"
+            android:layout_marginStart="@dimen/DP20"
+            android:layout_marginTop="@dimen/DP5"
+            android:layout_toEndOf="@id/img_audio1"
+            android:src="@mipmap/gift"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_msgsend"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DP40"
+            android:layout_marginStart="@dimen/DP10"
+            android:layout_marginTop="@dimen/DP10"
+            android:layout_marginEnd="@dimen/DP10"
+            android:layout_marginBottom="@dimen/DP10"
+            android:layout_toStartOf="@id/rl_end"
+            android:layout_toEndOf="@id/img_gift"
+            android:background="@drawable/rounded_relativechat"
+            android:gravity="center">
+
+            <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+                android:id="@+id/et_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/DP5"
+                android:layout_marginBottom="-5dp"
+                android:layout_toStartOf="@id/img_smile"
+                android:backgroundTint="@android:color/transparent"
+                android:hint="Type Message..."
+                android:imeOptions="actionSend"
+                android:inputType="text"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorNavigationFont"
+                android:textSize="@dimen/SP15" />
+
+            <ImageView
+                android:id="@+id/img_smile"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/DP5"
+                android:layout_marginEnd="@dimen/DP7"
+                android:src="@drawable/smile"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_end"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/DP50"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/DP10"
+            android:layout_marginEnd="@dimen/DP10"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/callin_conect"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/img_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/send_pre" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_gift"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/rl_end"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_giftmsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/tricolor_gradient_video_gift"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center"
+                android:padding="@dimen/DP10"
+                android:text="Send gifts to your favorite girl, she'll be thrilled~"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/img_giftloader"
+                android:layout_width="@dimen/DP50"
+                android:layout_height="@dimen/DP50"
+                android:layout_centerInParent="true"
+                android:src="@drawable/loader" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_gift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_giftmsg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rv_gift">
+
+                <TextView
+                    android:id="@+id/tv_coinchat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/DP5"
+                    android:drawableStart="@mipmap/coin"
+                    android:drawablePadding="@dimen/DP5"
+                    android:padding="@dimen/DP5"
+                    android:text="500"
+                    android:textColor="@color/colorWhite"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/tv_topup"
+                    android:layout_width="@dimen/DP70"
+                    android:layout_height="@dimen/DP35"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/rounded_btntopup"
+                    android:text="TOP-UP"
+                    android:textColor="@color/colorPink"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

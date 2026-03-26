@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/DP10">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_friendcall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/DP10"
+            android:layout_marginEnd="@dimen/DP10"
+            android:layout_marginTop="@dimen/DP10"
+            android:gravity="center"
+            android:text="coin message"
+            android:textColor=" @color/colorBlack"
+            android:textSize="@dimen/SP14" />
+
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_friendcall"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/DP80"
+            android:layout_marginTop="@dimen/DP10"
+            android:layout_marginEnd="@dimen/DP80"
+            android:background="@drawable/rounded_login"
+            android:gravity="center"
+            android:padding="@dimen/DP10"
+            android:text="OK"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_confirm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/DP80"
+            android:layout_marginTop="@dimen/DP5"
+            android:layout_marginEnd="@dimen/DP80"
+            android:layout_marginBottom="@dimen/DP10"
+            android:gravity="center"
+            android:padding="@dimen/DP10"
+            android:text="Later" />
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

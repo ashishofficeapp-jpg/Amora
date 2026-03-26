@@ -1,0 +1,191 @@
+{
+  "project_info": {
+    "project_number": "720604246001",
+    "firebase_url": "https://zeeplive-dcacf.firebaseio.com",
+    "project_id": "zeeplive-dcacf",
+    "storage_bucket": "zeeplive-dcacf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720604246001:android:55c98bdfb5321bf43e9e50",
+        "android_client_info": {
+          "package_name": "com.example.zeep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720604246001-101b27cgfd1bqb8t08e5i7gdg3bqbqak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zeep",
+            "certificate_hash": "ee1c3dcce07dfa5d3f3d1cc0a06c8918be2174c3"
+          }
+        },
+        {
+          "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsrlyFLzNlUCxoIigCa-8ILDtFmjUXtF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720604246001:android:32ae7bf4f192e5af3e9e50",
+        "android_client_info": {
+          "package_name": "com.meetlive.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720604246001-1m9aor2csssmslnrmq0b15tlbu22akil.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.meetlive.app",
+            "certificate_hash": "ee1c3dcce07dfa5d3f3d1cc0a06c8918be2174c3"
+          }
+        },
+        {
+          "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsrlyFLzNlUCxoIigCa-8ILDtFmjUXtF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720604246001:android:67e7c2c2db2f7e7f3e9e50",
+        "android_client_info": {
+          "package_name": "com.welive.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720604246001-3onk02b4a0t9lst6ug1oi68oi936k81e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.welive.chat",
+            "certificate_hash": "f846d6e27d765bc262300086a301ac3440de5e78"
+          }
+        },
+        {
+          "client_id": "720604246001-4opbeu2ni3l5uc5i41n15ukp9jebtdm5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.welive.chat",
+            "certificate_hash": "3315d5748194802f83fe7c145f2630ff330e4594"
+          }
+        },
+        {
+          "client_id": "720604246001-6f3lpfhj183hmefuhi3v16j2h1bj4cp2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.welive.chat",
+            "certificate_hash": "b1722d7aa64601e9460e2769b0470810df86b0e9"
+          }
+        },
+        {
+          "client_id": "720604246001-srkupnbkv31a7pjh0bl1s9acae223j4b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.welive.chat",
+            "certificate_hash": "ee1c3dcce07dfa5d3f3d1cc0a06c8918be2174c3"
+          }
+        },
+        {
+          "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsrlyFLzNlUCxoIigCa-8ILDtFmjUXtF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720604246001:android:6337d18df24ff07f3e9e50",
+        "android_client_info": {
+          "package_name": "com.zeeplive.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720604246001-ajg5vc69vqvat9jgv3s6p9i8a7q7ullb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zeeplive.app",
+            "certificate_hash": "285395459328038541d64160e749730ead70f82d"
+          }
+        },
+        {
+          "client_id": "720604246001-eaf17hbjpj2u1gajc3ch253079utp79d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zeeplive.app",
+            "certificate_hash": "c774e2a4ab2497a4b25ee4199bf18614fb069457"
+          }
+        },
+        {
+          "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsrlyFLzNlUCxoIigCa-8ILDtFmjUXtF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720604246001-02kfkiogk86rngsdgh7t34kaoreo5e80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

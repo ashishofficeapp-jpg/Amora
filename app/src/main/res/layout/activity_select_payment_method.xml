@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.meetlive.app.activity.SelectPaymentMethod" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/custom_toolbar"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="14dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Item"
+                    android:textColor="@color/grey200"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/coins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="14dp"
+                    android:drawableStart="@drawable/ic_coin"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/lato_medium"
+                    android:text="100"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/coins"
+                    android:background="@color/white300" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider"
+                    android:layout_margin="14dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Price"
+                    android:textColor="@color/grey200"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="14dp"
+                    android:fontFamily="@font/lato_medium"
+                    android:text="₹ 100"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/divider_payment_types"
+                android:layout_width="match_parent"
+                android:layout_height="14dp"
+                android:background="@color/white300"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/payment_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Select payment method"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/payment_heading"
+                    android:background="@color/white300" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/payment_heading"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_gpay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="Gpay"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/googlepaycashfree" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/lato_medium"
+                            android:gravity="start|center_vertical"
+                            android:text="Google Pay"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <CheckBox
+                            android:id="@+id/ll_gpay_check_box"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="-30dp"
+                            android:button="@drawable/custom_check_box"
+                            android:checked="true"
+                            android:onClick="gpay_check_box"
+                            android:gravity="end|center_vertical"
+                            android:scaleX="0.80"
+                            android:scaleY="0.80" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/v_gpay"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/white300"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_phonepe"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="phonepe_pay"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/phonepelogocashfree" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/lato_medium"
+                            android:gravity="start|center_vertical"
+                            android:text="Phonepe"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <CheckBox
+                            android:id="@+id/ll_phonepe_check_box"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="-30dp"
+                            android:button="@drawable/custom_check_box"
+                            android:gravity="end|center_vertical"
+                            android:onClick="phonepey_check_box"
+                            android:scaleX="0.80"
+                            android:scaleY="0.80" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/v_ppay"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/white300"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_payupi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="pay_UPI"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/upipaymentcashfree" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/lato_medium"
+                            android:gravity="start|center_vertical"
+                            android:text="UPI"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <CheckBox
+                            android:id="@+id/ll_payupi_check_box"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="-30dp"
+                            android:button="@drawable/custom_check_box"
+                            android:gravity="end|center_vertical"
+                            android:scaleX="0.80"
+                            android:scaleY="0.80" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/white300"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="nb_pay"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/bankcashfree" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/lato_medium"
+                            android:gravity="start|center_vertical"
+                            android:text="Net-Banking"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <CheckBox
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="-30dp"
+                            android:button="@drawable/custom_check_box"
+                            android:gravity="end|center_vertical"
+                            android:scaleX="0.80"
+                            android:scaleY="0.80" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/white300"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="card_pay"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/creditcardcashfree" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/lato_medium"
+                            android:gravity="start|center_vertical"
+                            android:text="Card"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <CheckBox
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="-30dp"
+                            android:button="@drawable/custom_check_box"
+                            android:gravity="end|center_vertical"
+                            android:scaleX="0.80"
+                            android:scaleY="0.80" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/payment_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:checkedButton="@id/upi">
+
+                        <RadioButton
+                            android:id="@+id/upi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#66bb6a"
+                            android:fontFamily="@font/lato_medium"
+                            android:paddingLeft="@dimen/_8sdp"
+                            android:text="Card / UPI / Netbanking / Wallet"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:visibility="gone" />
+
+                        <RadioButton
+                            android:id="@+id/g_pay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:buttonTint="#66bb6a"
+                            android:drawableRight="@drawable/ic_gpay"
+                            android:drawablePadding="0dp"
+                            android:visibility="gone" />
+
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:drawableStart="@drawable/ic_safe"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/lato_bold"
+                        android:text="100% safe &amp; secure"
+                        android:textColor="@color/grey200"
+                        android:textSize="10sp" />
+
+                    <com.meetlive.app.utils.CustomButton
+                        android:id="@+id/button_pay"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@drawable/login_button"
+                        android:gravity="center"
+                        android:text="Proceed"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
